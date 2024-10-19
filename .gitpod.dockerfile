@@ -53,12 +53,11 @@ RUN wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1
     sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* /home/gitpod/*.deb && \
     sudo chown -R gitpod:gitpod /home/gitpod/.cache/heroku/
 
-# Setup PostgreSQL
-
+# Install PostgreSQL 13
 RUN sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list' && \
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8 && \
     sudo apt-get update -y && \
-    sudo apt-get install -y postgresql-12
+    sudo apt-get install -y postgresql-13
 
 ENV PGDATA="/workspace/.pgsql/data"
 
@@ -71,8 +70,8 @@ RUN mkdir -p ~/.pg_ctl/bin ~/.pg_ctl/sockets \
 # ENV PGHOSTADDR="127.0.0.1"
 ENV PGDATABASE="postgres"
 
-ENV PATH="/usr/lib/postgresql/12/bin:/home/gitpod/.nvm/versions/node/v${NODE_VERSION}/bin:$HOME/.pg_ctl/bin:$PATH"
-
+# Update PATH to include PostgreSQL 13 binaries
+ENV PATH="/usr/lib/postgresql/13/bin:$HOME/.pg_ctl/bin:$PATH"
 
 # Add aliases
 
