@@ -1,5 +1,77 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+# Project Flow Summary
+
+*	Phase 1: Set up user authentication and profile management.
+*	Phase 2: Implement product listings, checkout, and e-commerce functionality.
+*	Phase 3: Build live session management and booking functionality.
+*	Phase 4: Create pre-recorded video access for registered users.
+*	Phase 5: Implement subscription management and payment processing.
+
+## Phase 1: Core Setup and User Authentication
+
+1.	Project Setup  
+* **Create the Django Project**: Start by setting up the Django project and configuring the settings.  
+* **Install Django**: and create the project using django-admin startproject fitness_app.  
+* **Config**: Set up basic configurations, including database settings.  
+* **Install Required Packages**: Install packages for authentication (django-allauth), handling static files, etc.  
+
+2.	Users App: Authentication and Profile Setup  
+* **Create the users app**: Set up user authentication using Django’s built-in user model and extend it with a Profile model.  
+* **Build Registration & Login Pages**: Create the registration and login views, using Django’s authentication or django-allauth.  
+* **Create User Profile Management**: Add functionality for users to view and update their profile.  
+* **Create URLs and Templates**: Implement URLs for registration, login, and profile management, and create basic templates (register.html, login.html, profile.html).  
+* **Test Authentication**: Make sure users can sign up, log in, and manage their profiles. Testing this early is critical, as it’s the foundation of the project.  
+
+## Phase 2: Products and E-commerce
+
+1.	Products App: Fitness Products and Merchandise
+* **Create the products app**: Set up the product model (Product), and create the views and templates to list products.
+*	**Build Product Pages**: Create pages that display all products and individual product details.
+*	**Implement Checkout (Non-Subscription Products)**: Add a simple cart and checkout system for non-subscription products, integrating with Stripe or PayPal.
+*	**URLs and Templates**: Build URLs for product listing (/products/) and checkout (/checkout/), and create associated templates.
+* **Product Categories**: Add product categories for better organization.
+* **Search Functionality**: Implement a search feature to help users find products easily.
+* **Inventory Management**: Include inventory tracking to manage stock levels.
+
+## Phase 3: Live Session Booking
+
+1.	Sessions App: Live Fitness Sessions and Bookings  
+* **Create the sessions app**: Set up models for live sessions (LiveSession) and bookings (Booking).  
+* **Build Live Session Listings**: Create views and templates to list all upcoming live sessions and allow users to book limited spaces.  
+* **Build Booking Functionality**: Ensure that registered users can book sessions, and handle capacity limits (max participants).  
+* **Build Dashboard for Managing Bookings**: Update the user dashboard to display booked sessions and allow users to cancel bookings if needed.  
+* **URLs and Templates**: Implement URLs for session listings (/sessions/), booking (/sessions/<id>/book/), and bookings management.  
+* **Notifications**: Add email or SMS notifications for session bookings and reminders.
+* **Calendar Integration**: Allow users to add booked sessions to their personal calendars.
+
+## Phase 4: Pre-recorded Videos (On-Demand Content)
+ 
+1.	Videos App: Pre-recorded Fitness Videos  
+* **Create the videos app**: Set up a model for videos (Video), and create views for listing and watching videos.  
+* **Restrict Access to Registered Users**: Ensure that only registered users can access the video library.  
+* **URLs and Templates**: Create URLs for listing videos (/videos/) and watching videos (/videos/<id>/).  
+* * **Video Quality**: Ensure videos are optimized for different devices and internet speeds.  
+* **Comments/Feedback**: Allow users to leave comments or feedback on videos.  
+
+## Phase 5: Payments, Subscriptions, and Final Polish
+
+1.	Subscriptions App: Payment and Subscription Management  
+* **Implement Subscription Model**: Set up the Subscription model to manage recurring payments for access to premium content (live sessions and videos).  
+* **Integrate Stripe/PayPal**: Implement payment integration for subscription-based access to premium content.  
+* **Build Checkout for Subscription**: Create the checkout process for users to subscribe and manage payments.  
+* **URLs and Templates**: Create the subscription-related URLs (/subscriptions/checkout/), and ensure the system ties into the user’s dashboard and session access.  
+* **Payment Security**: Ensure PCI compliance for handling payments.
+* **Subscription Tiers**: Offer different subscription tiers with varying levels of access.
+
+
+2.	Final Polish  
+* **Add Reviews for Products/Sessions**: Add a reviews feature where users can leave feedback on products or sessions.  
+* **Test and Debug**: Conduct thorough testing of all user flows, particularly with respect to authentication, payments, and session booking.  
+* **Responsive Design**: Ensure the site works well on mobile devices and tablets, especially for users booking live sessions on the go.  
+* **Analytics**: Implement analytics to track user engagement and sales.
+
+____________________________________
 Welcome William Saunders,
 
 This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
