@@ -4,6 +4,8 @@ tasks:
   - init: . ${GITPOD_REPO_ROOT}/.vscode/init_tasks.sh
     command: /home/gitpod/.pg_ctl/bin/pg_start > /dev/null
   - command: . ${GITPOD_REPO_ROOT}/.vscode/uptime.sh &
+  - name: Uninstall Sourcery
+    init: ./uninstall_sourcery.sh
 vscode:
   extensions:
     - ms-python.python
