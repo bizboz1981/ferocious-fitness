@@ -1,8 +1,9 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 # Project Flow Summary
+✅ Tested and working 🔸 Partially Implemented 🛑 Not yet implemented 💀 Feature abandoned
 
-*	Phase 1: Set up user authentication and profile management.
+*	Phase 1: Set up user authentication and profile management. 
 *	Phase 2: Implement product listings, checkout, and e-commerce functionality.
 *	Phase 3: Build live session management and booking functionality.
 *	Phase 4: Create pre-recorded video access for registered users.
@@ -11,13 +12,13 @@
 ## Phase 1: Core Setup and User Authentication
 
 1.	Project Setup  
-* **Create the Django Project**: Start by setting up the Django project and configuring the settings.  
-* **Install Django**: and create the project using django-admin startproject fitness_app.  
-* **Config**: Set up basic configurations, including database settings.  
-* **Install Required Packages**: Install packages for authentication (django-allauth), handling static files, etc.  
+* **Create the Django Project**: Start by setting up the Django project and configuring the settings.  ✅  
+* **Install Django**: and create the project using django-admin startproject fitness_app.  ✅  
+* **Config**: Set up basic configurations, including database settings.  ✅  
+* **Install Required Packages**: Install packages for authentication (django-allauth), handling static files, etc.  ✅
 
 2.	Users App: Authentication and Profile Setup  
-* **Create the users app**: Set up user authentication using Django’s built-in user model and extend it with a Profile model.  
+* **Create the users app**: Set up user authentication using Django’s built-in user model and extend it with a Profile model.  ✅  
 * **Build Registration & Login Pages**: Create the registration and login views, using Django’s authentication or django-allauth.  
 * **Create User Profile Management**: Add functionality for users to view and update their profile.  
 * **Create URLs and Templates**: Implement URLs for registration, login, and profile management, and create basic templates (register.html, login.html, profile.html).  
