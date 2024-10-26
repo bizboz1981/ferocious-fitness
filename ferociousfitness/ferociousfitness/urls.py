@@ -19,6 +19,10 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    # Admin site URL
     path("admin/", admin.site.urls),
+    # Include URLs from the 'users' app
     path("", include("users.urls")),
+    # Include URLs for allauth (third-party authentication)
+    path("accounts/", include("allauth.urls")),
 ]
