@@ -47,14 +47,25 @@ INSTALLED_APPS = [
     "users",
 ]
 
+
+# Required by django-allauth
+SITE_ID = 1
+
+
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-SITE_ID = 1
-LOGIN_REDIRECT_URL = "/"
+# Redirect after login/logout
+LOGIN_REDIRECT_URL = "/profile/"
 LOGOUT_REDIRECT_URL = "/"
+
+# Additional allauth settings
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "optional"  # Options: "mandatory", "optional", "none"
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # Allows both username and email login
+ACCOUNT_USERNAME_REQUIRED = True
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -72,7 +83,7 @@ ROOT_URLCONF = "ferociousfitness.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "ferociousfitness/users/templates/users"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -137,9 +148,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
