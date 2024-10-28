@@ -1,11 +1,14 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
+from .models import Profile
+
 
 @login_required
 def profile_view(request):
-    profile = request.user.profile  # Access the profile via the user
-    return render(request, "profile.html", {"profile": profile})
+    user = request.user
+    profile, created = Profile.objects.get_or_create(user=user)
+    return render(request, "users/profile.html", {"profile": profile})
 
 
 def index(request):

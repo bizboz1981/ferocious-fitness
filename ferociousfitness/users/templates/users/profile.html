@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{ user.username }}'s Profile</h1>
-    <img src="{{ profile.profile_image.url }}" alt="Profile Picture" width="150" height="150">
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <p><strong>Bio:</strong> {{ profile.bio }}</p>
-    <p><strong>Subscription Status:</strong> {{ profile.subscription_status }}</p>
-    <p><strong>Joined on:</strong> {{ profile.join_date }}</p>
-</body>
-</html>
+{% extends "users/base.html" %}
+
+{% block title %}
+    {{ user.username }}'s Profile
+{% endblock title %}
+
+{% block content %}
+<h1>{{ user.username }}'s Profile</h1>
+<img src="{{ profile.profile_image.url }}" alt="Profile Picture" width="150" height="150">
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Bio:</strong> {{ profile.bio }}</p>
+<p><strong>Subscription Status:</strong> {{ profile.subscription_status }}</p>
+<p><strong>Joined on:</strong> {{ profile.join_date }}</p>
+{% endblock content %}

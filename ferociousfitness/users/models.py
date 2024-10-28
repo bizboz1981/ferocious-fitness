@@ -11,7 +11,7 @@ class Profile(models.Model):
     )  # links profile to specific user
     bio = models.TextField(max_length=500, blank=True, null=True)
     profile_pic = models.ImageField(upload_to="profile_pics", blank=True, null=True)
-    subscription_status = models.BooleanField(default=False)  # is user subscroibed?
+    subscription_status = models.BooleanField(default=False)  # is user subscribed?
     join_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
