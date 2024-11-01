@@ -1,17 +1,17 @@
 {% extends "users/base.html" %}
-
+{% load custom_filters %}
 {% block title %}
     {{ user.username }}'s Profile
 {% endblock title %}
-
 {% block content %}
 <h1>{{ user.username }}'s Profile</h1>
-<img src="{{ profile.profile_image.url }}" alt="Profile Picture" width="150" height="150">
+{% if profile.get_profile_pic %}
+    <img src="data:image/jpeg;base64,{{ profile.get_profile_pic|b64encode }}" alt="Profile Picture" width="150" height="150">
+{% endif %}
 <p><strong>Email:</strong> {{ user.email }}</p>
 <p><strong>Bio:</strong> {{ profile.bio }}</p>
 <p><strong>Subscription Status:</strong> {{ profile.subscription_status }}</p>
 <p><strong>Joined on:</strong> {{ profile.join_date }}</p>
-
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
