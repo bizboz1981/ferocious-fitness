@@ -21,3 +21,7 @@ nav ul li a {
 .content {
     margin-top: 20px;
 }
+
+#profile-form-container {
+    display: none;
+}
