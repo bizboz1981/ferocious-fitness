@@ -1,6 +1,10 @@
 /* static/css/styles.css */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
 }
 
 nav ul {
@@ -22,6 +26,154 @@ nav ul li a {
     margin-top: 20px;
 }
 
+/* ---------------------------------------------Profile Page ------------------------------------------- */
+
+/* Profile Page Styling */
+.profile-content {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Profile Picture Styling */
+.profile-pic {
+    display: block;
+    margin: 0 auto 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Form Styling */
 #profile-form-container {
     display: none;
+}
+
+.profile-form {
+    display: none; /* Initially hidden */
+    margin-top: 20px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.profile-form form {
+    display: flex;
+    flex-direction: column;
+}
+/* 
+.profile-form button[type="submit"] {
+    margin-top: 10px;
+} */
+
+/* --------------------------------------------- Home Page ---------------------------------------------- */
+
+h1#site-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 20px;
+    color: #333;
+}
+
+h2#tagline {
+    text-align: center;
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* Section Styling */
+section {
+    width: 80%;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h3 {
+    font-size: 1.8em;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Welcome Section */
+.intro-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Benefits List */
+.benefits-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.benefits-list li {
+    margin: 10px 0;
+}
+
+/* Offerings Section */
+.offerings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.offering {
+    flex: 1 1 45%;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.offering h4 {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.offering p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Call to Action Section */
+#cta-section {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    border-radius: 8px;
+}
+
+.cta-text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 250px;
+}
+
+.cta-button:hover {
+    background-color: #e64a19;
 }
