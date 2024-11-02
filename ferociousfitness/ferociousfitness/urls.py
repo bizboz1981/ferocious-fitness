@@ -27,6 +27,8 @@ urlpatterns = [
     path("", include("users.urls")),
     # Include URLs for allauth (third-party authentication)
     path("accounts/", include("allauth.urls")),
+    # Include URLs from the 'booking' app
+    path("booking/", include("booking.urls")),
 ]
 
 # Include the Debug Toolbar URLs when DEBUG is True
