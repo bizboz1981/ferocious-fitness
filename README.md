@@ -21,9 +21,9 @@
 * **Create the users app**: Set up user authentication using Django’s built-in user model and extend it with a Profile model.  ✅  
 * **Build Registration & Login Pages**: Create the registration and login views, using django-allauth. ✅ 
 * **Create User Profile Management**: Add functionality for users to view and update their profile.  ✅ 
-  * make sure update profile form fields are hidden unless button clicked
-* **Create URLs and Templates**: Implement URLs for registration, login, and profile management, and create basic templates (register.html, login.html, profile.html).  
-* **Test Authentication**: Make sure users can sign up, log in, and manage their profiles. Testing this early is critical, as it’s the foundation of the project.  
+  * make sure update profile form fields are hidden unless button clicked✅
+* **Create URLs and Templates**: Implement URLs for registration, login, and profile management, and create basic templates (register.html, login.html, profile.html).  ✅
+* **Test Authentication**: Make sure users can sign up, log in, and manage their profiles. Testing this early is critical, as it’s the foundation of the project.  ✅
 * **Add Content to Homepage**: Add copy and images to homepage to show instantly what site is about.
 
 ## Phase 2: Products and E-commerce
