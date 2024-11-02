@@ -5,27 +5,31 @@
     {{ user.username }}'s Profile
 {% endblock title %}
 {% block content %}
-<h1>{{ user.username }}'s Profile</h1>
-<!-- Display profile picture if available -->
-{% if profile.get_profile_pic %}
-    <img src="data:image/jpeg;base64,{{ profile.get_profile_pic|b64encode }}" alt="Profile Picture" width="150" height="150">
-{% endif %}
-<!-- Display user email -->
-<p><strong>Email:</strong> {{ user.email }}</p>
-<!-- Display user bio -->
-<p><strong>Bio:</strong> {{ profile.bio }}</p>
-<!-- Display subscription status -->
-<p><strong>Subscription Status:</strong> {{ profile.subscription_status }}</p>
-<!-- Display join date -->
-<p><strong>Joined on:</strong> {{ profile.join_date }}</p>
-<!-- Button to show the form -->
-<button id="show-form-btn">Update Your Profile</button>
-<!-- Form container, initially hidden -->
-<div id="profile-form-container">
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update Profile</button>
-    </form>
+<h1 id="site-title">{{ user.username }}'s Profile</h1>
+
+<div class="profile-content">
+    <!-- Display profile picture if available -->
+    {% if profile.get_profile_pic %}
+        <img src="data:image/jpeg;base64,{{ profile.get_profile_pic|b64encode }}" alt="Profile Picture" class="profile-pic">
+    {% endif %}
+    <!-- Display user email -->
+    <p><strong>Email:</strong> {{ user.email }}</p>  
+    <!-- Display user bio -->
+    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+    <!-- Display subscription status -->
+    <p><strong>Subscription Status:</strong> {{ profile.subscription_status }}</p>
+    <!-- Display join date -->
+    <p><strong>Joined on:</strong> {{ profile.join_date }}</p>
+    <!-- Button to show the form -->
+    <button id="show-form-btn" class="cta-button">Update Your Profile</button>
+
+    <!-- Form container, initially hidden -->
+    <div id="profile-form-container" class="profile-form">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="cta-button">Update Profile</button>
+        </form>
+    </div>
 </div>
 {% endblock content %}
