@@ -4,8 +4,8 @@
 ✅ Tested and working 🔸 Partially Implemented 🛑 Not yet implemented 💀 Feature abandoned
 
 *	Phase 1: Set up user authentication and profile management. 
-*	Phase 2: Implement product listings, checkout, and e-commerce functionality.
-*	Phase 3: Build live session management and booking functionality.
+*	Phase 2: Build live session management and booking functionality.
+*	Phase 3: Implement product listings, checkout, and e-commerce functionality.
 *	Phase 4: Create pre-recorded video access for registered users.
 *	Phase 5: Implement subscription management and payment processing.
 
@@ -16,6 +16,7 @@
 * **Install Django**: and create the project using django-admin startproject fitness_app.  ✅  
 * **Config**: Set up basic configurations, including database settings.  ✅  
 * **Install Required Packages**: Install packages for authentication (django-allauth), handling static files, etc.  ✅
+* **Define Data Model**: Define data model based on project requirements
 
 2.	Users App: Authentication and Profile Setup  
 * **Create the users app**: Set up user authentication using Django’s built-in user model and extend it with a Profile model.  ✅  
@@ -24,9 +25,20 @@
   * make sure update profile form fields are hidden unless button clicked✅
 * **Create URLs and Templates**: Implement URLs for registration, login, and profile management, and create basic templates (register.html, login.html, profile.html).  ✅
 * **Test Authentication**: Make sure users can sign up, log in, and manage their profiles. Testing this early is critical, as it’s the foundation of the project.  ✅
-* **Add Content to Homepage**: Add copy and images to homepage to show instantly what site is about.
+* **Add Content to Homepage**: Add copy and images to homepage to show instantly what site is about. ✅  
 
-## Phase 2: Products and E-commerce
+## Phase 2: Live Session Booking
+
+1.	Sessions App: Live Fitness Sessions and Bookings: Personal training and Group sessions  
+* **Create the sessions app**: Set up models for live sessions (Session and ClassType) and bookings (Booking).  
+* **Build Live Session Listings**: Create views and templates to list all upcoming live sessions and allow users to book limited spaces.  
+* **Build Booking Functionality**: Ensure that registered users can book sessions, and handle capacity limits (max participants).  
+* **Build Dashboard for Managing Bookings**: Update the user dashboard to display booked sessions and allow users to cancel bookings if needed.  
+* **URLs and Templates**: Implement URLs for session listings (/sessions/), booking (/sessions/<id>/book/), and bookings management.  
+* **Notifications**: Add email or SMS notifications for session bookings and reminders.
+* **Calendar Integration**: Allow users to add booked sessions to their personal calendars.
+
+## Phase 3: Products and E-commerce
 
 1.	Products App: Fitness Products and Merchandise
 * **Create the products app**: Set up the product model (Product), and create the views and templates to list products.
@@ -36,17 +48,6 @@
 * **Product Categories**: Add product categories for better organization.
 * **Search Functionality**: Implement a search feature to help users find products easily.
 * **Inventory Management**: Include inventory tracking to manage stock levels.
-
-## Phase 3: Live Session Booking
-
-1.	Sessions App: Live Fitness Sessions and Bookings: Personal training and Group sessions  
-* **Create the sessions app**: Set up models for live sessions (LiveSession) and bookings (Booking).  
-* **Build Live Session Listings**: Create views and templates to list all upcoming live sessions and allow users to book limited spaces.  
-* **Build Booking Functionality**: Ensure that registered users can book sessions, and handle capacity limits (max participants).  
-* **Build Dashboard for Managing Bookings**: Update the user dashboard to display booked sessions and allow users to cancel bookings if needed.  
-* **URLs and Templates**: Implement URLs for session listings (/sessions/), booking (/sessions/<id>/book/), and bookings management.  
-* **Notifications**: Add email or SMS notifications for session bookings and reminders.
-* **Calendar Integration**: Allow users to add booked sessions to their personal calendars.
 
 ## Phase 4: Pre-recorded Videos (On-Demand Content)
  
@@ -204,3 +205,9 @@ Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` f
 ---
 
 Happy coding!
+* Data Model:
+![Data Model](ferociousfitness/media/img/django_data_model.jpeg)
+
+* References  
+  * https://dev.to/chukslord1/building-an-appointment-scheduler-app-with-django-and-fauna-2n9o
+  * 
