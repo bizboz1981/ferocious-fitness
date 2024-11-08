@@ -5,9 +5,9 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Book Your Fitness Session</h1>
+    <h1 class="site-title">Book Your Fitness Session</h1>
     <!-- Session List -->
-    <div class="sessions-list">
+    <section class="sessions-list">
         {% for session in sessions %}
             <div class="session-card">
                 <h2>{{ session.title }}</h2>
@@ -36,5 +36,5 @@
         {% empty %}
             <p>No sessions available at the moment. Please check back later.</p>
         {% endfor %}
-    </div>
+    </section>
 {% endblock content %}
