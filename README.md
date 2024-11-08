@@ -30,9 +30,9 @@
 ## Phase 2: Live Session Booking
 
 1.	Sessions App: Live Fitness Sessions and Bookings: Personal training and Group sessions  
-* **Create the sessions app**: Set up models for live sessions (Session and ClassType) and bookings (Booking).  
-* **Build Live Session Listings**: Create views and templates to list all upcoming live sessions and allow users to book limited spaces.  
-* **Build Booking Functionality**: Ensure that registered users can book sessions, and handle capacity limits (max participants).  
+* **Create the sessions app**: Set up models for live sessions (Session and ClassType) and bookings (Booking).  ✅  
+* **Build Live Session Listings**: Create views and templates to list all upcoming live sessions and allow users to book limited spaces.  ✅  
+* **Build Booking Functionality**: Ensure that registered users can book sessions, and handle capacity limits (max participants).  ✅  
 * **Build Dashboard for Managing Bookings**: Update the user dashboard to display booked sessions and allow users to cancel bookings if needed.  
 * **URLs and Templates**: Implement URLs for session listings (/sessions/), booking (/sessions/<id>/book/), and bookings management.  
 * **Notifications**: Add email or SMS notifications for session bookings and reminders.
