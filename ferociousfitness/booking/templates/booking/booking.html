@@ -6,6 +6,18 @@
 
 {% block content %}
     <h1 class="site-title">Book Your Fitness Session</h1>
+
+    <!-- Display messages -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <!-- Session List -->
     <section class="sessions-list">
         {% for session in sessions %}

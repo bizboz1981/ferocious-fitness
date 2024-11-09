@@ -1,4 +1,6 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .models import Booking, Session
@@ -14,5 +16,11 @@ def booking_page(request):
 def book_session(request, session_id):
     session = get_object_or_404(Session, id=session_id)
     if not session.is_full():
-        Booking.objects.create(user=request.user, session=session)
+        try:
+            Booking.objects.create(user=request.user, session=session)
+            messages.success(request, "You have successfully booked the session.")
+        except IntegrityError:
+            messages.error(request, "You have already booked this session.")
+    else:
+        messages.error(request, "This session is fully booked.")
     return redirect("booking_page")
