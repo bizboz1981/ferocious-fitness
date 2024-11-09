@@ -1,3 +1,4 @@
+from booking.models import Booking
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
@@ -13,8 +14,12 @@ def profile_view(request):
     # Get or create a profile for the user
     profile, created = Profile.objects.get_or_create(user=user)
 
+    # Get the user's bookings
+    bookings = Booking.objects.filter(user=user)
+
     if request.method == "POST":
-        # If the request is a POST, create a form instance with the POST data and files
+        # If the request is a POST, create a form instance
+        # with the POST data and files
         form = ProfileForm(request.POST, request.FILES, instance=profile)
 
         # Check if the form is valid
@@ -23,11 +28,16 @@ def profile_view(request):
             form.save()
             return redirect("profile")
     else:
-        # If the request is not a POST, create a form instance with the existing profile data
+        # If the request is not a POST, create a form instance
+        # with the existing profile data
         form = ProfileForm(instance=profile)
 
     # Render the profile page with the profile and form data
-    return render(request, "users/profile.html", {"profile": profile, "form": form})
+    return render(
+        request,
+        "users/profile.html",
+        {"profile": profile, "form": form, "bookings": bookings},
+    )
 
 
 def index(request):

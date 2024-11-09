@@ -31,5 +31,14 @@
             <button type="submit" class="cta-button">Update Profile</button>
         </form>
     </div>
+    <!-- Booked Sessiona -->
+    <h2>Booked Sessions</h2>
+    <ul>
+        {% for booking in bookings %}
+            <li>{{ booking.session.title }} on {{ booking.session.date }} at {{ booking.session.time }}</li>
+        {% empty %}
+            <li>You have no booked sessions.</li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock content %}
