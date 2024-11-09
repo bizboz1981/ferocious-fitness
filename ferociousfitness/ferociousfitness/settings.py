@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 import dj_database_url
+from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -52,8 +53,10 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.messages.middleware.MessageMiddleware",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "django.contrib.sessions.middleware.SessionMiddleware",
 ]
 
 
@@ -170,3 +173,11 @@ INTERNAL_IPS = [
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+MESSAGE_TAGS = {
+    messages.DEBUG: "debug",
+    messages.INFO: "info",
+    messages.SUCCESS: "success",
+    messages.WARNING: "warning",
+    messages.ERROR: "error",
+}
