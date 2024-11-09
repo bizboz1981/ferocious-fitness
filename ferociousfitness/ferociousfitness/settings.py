@@ -53,10 +53,8 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.messages.middleware.MessageMiddleware",
     "django.contrib.staticfiles",
     "debug_toolbar",
-    "django.contrib.sessions.middleware.SessionMiddleware",
 ]
 
 
