@@ -15,7 +15,7 @@ def profile_view(request):
     profile, created = Profile.objects.get_or_create(user=user)
 
     # Get the user's bookings
-    bookings = Booking.objects.filter(user=user)
+    bookings = Booking.objects.filter(user=user).order_by("session__date")
 
     if request.method == "POST":
         # If the request is a POST, create a form instance

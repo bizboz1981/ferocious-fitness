@@ -8,7 +8,7 @@ from .models import Booking, Session
 
 # Create your views here.
 def booking_page(request):
-    sessions = Session.objects.all()
+    sessions = Session.objects.all().order_by("date", "time")
     return render(request, "booking/booking.html", {"sessions": sessions})
 
 
