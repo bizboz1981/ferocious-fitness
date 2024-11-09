@@ -18,9 +18,13 @@ def book_session(request, session_id):
     if not session.is_full():
         try:
             Booking.objects.create(user=request.user, session=session)
-            messages.success(request, "You have successfully booked the session.")
+            messages.success(
+                request, f"You have successfully booked this {session.title} session."
+            )
         except IntegrityError:
-            messages.error(request, "You have already booked this session.")
+            messages.error(
+                request, f"You have already booked this {session.title} session."
+            )
     else:
-        messages.error(request, "This session is fully booked.")
+        messages.error(request, f"This {session.title} session is fully booked.")
     return redirect("booking_page")
