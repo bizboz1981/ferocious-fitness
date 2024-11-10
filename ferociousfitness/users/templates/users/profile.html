@@ -35,8 +35,15 @@
     <h2>Booked Sessions</h2>
     <ul>
         {% for booking in bookings %}
-            <li>{{ booking.session.title }} on {{ booking.session.date }} at {{ booking.session.time }}</li>
-        {% empty %}
+        <li>
+            <!-- display booking details -->
+            {{ booking.session.title }} on {{ booking.session.date }} at {{ booking.session.time }}
+            <!-- cancel button -->
+            <form action="{% url 'cancel_booking' booking.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="cta-button">Cancel Booking</button>
+            </form>
+        </li>        {% empty %}
             <li>You have no booked sessions.</li>
         {% endfor %}
     </ul>
