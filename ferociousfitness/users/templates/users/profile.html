@@ -7,6 +7,17 @@
 {% block content %}
 <h1 id="site-title">{{ user.username }}'s Profile</h1>
 
+    <!-- Display messages -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
 <div class="profile-content">
     <!-- Display profile picture if available -->
     {% if profile.get_profile_pic %}
