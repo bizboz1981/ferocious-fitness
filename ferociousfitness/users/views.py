@@ -1,9 +1,15 @@
 from booking.models import Booking
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import ProfileForm
 from .models import Profile
+
+
+def index(request):
+    # Render the index page
+    return render(request, "users/index.html")
 
 
 @login_required
@@ -40,6 +46,15 @@ def profile_view(request):
     )
 
 
-def index(request):
-    # Render the index page
-    return render(request, "users/index.html")
+@login_required
+def cancel_booking(request, booking_id):
+    # Get the booking with the given ID
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    # Delete the booking
+    booking.delete()
+    # flash message confirming the cancellation
+    messages.success(
+        request, f"Booking for {booking.session.title} cancelled successfully."
+    )
+    # Redirect to the profile page
+    return redirect("profile")
