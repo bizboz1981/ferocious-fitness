@@ -54,7 +54,8 @@ def cancel_booking(request, booking_id):
     booking.delete()
     # flash message confirming the cancellation
     messages.success(
-        request, f"Booking for {booking.session.title} cancelled successfully."
+        request,
+        f"Booking for {booking.session.title} on {booking.session.date.strftime('%d/%m/%Y')} cancelled successfully.",
     )
     # Redirect to the profile page
     return redirect("profile")
