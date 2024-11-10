@@ -33,7 +33,8 @@
 * **Create the sessions app**: Set up models for live sessions (Session and ClassType) and bookings (Booking).  ✅  
 * **Build Live Session Listings**: Create views and templates to list all upcoming live sessions and allow users to book limited spaces.  ✅  
 * **Build Booking Functionality**: Ensure that registered users can book sessions, and handle capacity limits (max participants).  ✅  
-* **Build Dashboard for Managing Bookings**: Update the user dashboard to display booked sessions and allow users to cancel bookings if needed.  
+* **Build Dashboard for Managing Bookings**: Update the user dashboard to display booked sessions and allow users to cancel bookings if needed.   ✅  
+  * If a session is cancelled and goes from 'full' to 'not full', how do I remove 'disabled' class from html 'book now' button? ❓❓❓
 * **URLs and Templates**: Implement URLs for session listings (/sessions/), booking (/sessions/<id>/book/), and bookings management.  
 * **Notifications**: Add email or SMS notifications for session bookings and reminders.
 * **Calendar Integration**: Allow users to add booked sessions to their personal calendars.
@@ -210,4 +211,6 @@ Happy coding!
 
 * References  
   * https://dev.to/chukslord1/building-an-appointment-scheduler-app-with-django-and-fauna-2n9o
+  * https://www.youtube.com/watch?v=XX8O2JNIOQo
+  * https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
   * 
