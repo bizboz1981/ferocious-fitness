@@ -213,4 +213,4 @@ Happy coding!
   * https://dev.to/chukslord1/building-an-appointment-scheduler-app-with-django-and-fauna-2n9o
   * https://www.youtube.com/watch?v=XX8O2JNIOQo
   * https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
-  * 
+  * https://channels.readthedocs.io/en/latest/introduction.html#turtles-all-the-way-down
