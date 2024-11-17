@@ -46,11 +46,12 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'booking_page' %}">Book a Session</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                    <a class="nav-link dropdown-toggle" href="{% url 'product_list' %}" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
                     <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-                        <li><a class="dropdown-item" href="#">Supplements</a></li>
-                        <li><a class="dropdown-item" href="#">Equipment</a></li>
-                        <li><a class="dropdown-item" href="#">Clothing</a></li>
+                        <li><a class="dropdown-item" href="{% url 'product_list' %}">All Products</a></li>
+                        <li><a class="dropdown-item" href="{% url 'product_list' %}">Supplements</a></li>
+                        <li><a class="dropdown-item" href="{% url 'product_list' %}">Equipment</a></li>
+                        <li><a class="dropdown-item" href="{% url 'product_list' %}">Clothing</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
