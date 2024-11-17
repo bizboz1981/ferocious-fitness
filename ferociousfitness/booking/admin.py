@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import ClassType, Session
+from .models import Booking, ClassType, Session
 
 
 # Register your models here.
@@ -20,3 +20,8 @@ class SessionAdmin(admin.ModelAdmin):
 @admin.register(ClassType)
 class ClassTypeAdmin(admin.ModelAdmin):
     list_display = ["name", "description"]
+
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ["session", "user", "booking_date"]
