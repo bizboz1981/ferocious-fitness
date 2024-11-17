@@ -29,6 +29,8 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Include URLs from the 'booking' app
     path("booking/", include("booking.urls")),
+    # Include URLs from the 'products' app
+    path("products/", include("products.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Include the Debug Toolbar URLs when DEBUG is True
