@@ -5,7 +5,11 @@ from .models import Product
 
 # Create your views here.
 def product_list(request):
-    products = Product.objects.all()
+    category_name = request.GET.get("category")
+    if category_name:
+        products = Product.objects.filter(category__name=category_name)
+    else:
+        products = Product.objects.all()
     return render(request, "products/product_list.html", {"products": products})
 
 
