@@ -1,0 +1,250 @@
+[
+    {
+    "name": "Yoga Pants",
+    "description": "High-waisted, moisture-wicking yoga pants for maximum comfort.",
+    "price": 29.99,
+    "category": "clothing",
+    "image": "0001.jpeg",
+    "stock": 50
+    },
+    {
+    "name": "Compression Shorts",
+    "description": "Men's compression shorts to enhance performance and recovery.",
+    "price": 19.99,
+    "category": "clothing",
+    "image": "0002.jpeg",
+    "stock": 40
+    },
+    {
+    "name": "Workout Tank Top",
+    "description": "Lightweight and breathable tank top for intense workouts.",
+    "price": 14.99,
+    "category": "clothing",
+    "image": "0003.jpeg",
+    "stock": 60
+    },
+    {
+    "name": "Sports Bra",
+    "description": "Supportive sports bra for high-impact activities.",
+    "price": 24.99,
+    "category": "clothing",
+    "image": "0004.jpeg",
+    "stock": 35
+    },
+    {
+    "name": "Hooded Sweatshirt",
+    "description": "Warm, fleece-lined hoodie for post-workout comfort.",
+    "price": 39.99,
+    "category": "clothing",
+    "image": "0005.jpeg",
+    "stock": 20
+    },
+    {
+    "name": "Performance T-Shirt",
+    "description": "Quick-dry t-shirt perfect for running or gym workouts.",
+    "price": 18.99,
+    "category": "clothing",
+    "image": "0006.jpeg",
+    "stock": 70
+    },
+    {
+    "name": "Jogging Shorts",
+    "description": "Lightweight jogging shorts with secure zip pockets.",
+    "price": 21.99,
+    "category": "clothing",
+    "image": "0007.jpeg",
+    "stock": 45
+    },
+    {
+    "name": "Thermal Running Tights",
+    "description": "Thermal tights designed for running in cold weather.",
+    "price": 29.99,
+    "category": "clothing",
+    "image": "0008.jpeg",
+    "stock": 30
+    },
+    {
+    "name": "Sleeveless Hoodie",
+    "description": "Trendy sleeveless hoodie for casual or gym wear.",
+    "price": 34.99,
+    "category": "clothing",
+    "image": "0009.jpeg",
+    "stock": 25
+    },
+    {
+    "name": "Weightlifting Gloves",
+    "description": "Durable gloves to protect hands during heavy lifts.",
+    "price": 14.99,
+    "category": "clothing",
+    "image": "0010.jpeg",
+    "stock": 100
+    },
+    {
+    "name": "Ankle Compression Socks",
+    "description": "Supportive compression socks for running and recovery.",
+    "price": 9.99,
+    "category": "clothing",
+    "image": "0011.jpeg",
+    "stock": 200
+    },
+    {
+    "name": "Track Jacket",
+    "description": "Lightweight and breathable track jacket for layering.",
+    "price": 39.99,
+    "category": "clothing",
+    "image": "0012.jpeg",
+    "stock": 20
+    },
+    {
+    "name": "Seamless Leggings",
+    "description": "Seamless leggings for yoga and training sessions.",
+    "price": 24.99,
+    "category": "clothing",
+    "image": "0013.jpeg",
+    "stock": 35
+    },
+    {
+    "name": "Running Cap",
+    "description": "Breathable and adjustable running cap for sun protection.",
+    "price": 12.99,
+    "category": "clothing",
+    "image": "0014.jpeg",
+    "stock": 60
+    },
+    {
+    "name": "Sweatband Set",
+    "description": "Head and wrist sweatband set for intense workouts.",
+    "price": 8.99,
+    "category": "clothing",
+    "image": "0015.jpeg",
+    "stock": 150
+    },
+    {
+    "name": "Dumbbells (Set)",
+    "description": "Adjustable dumbbell set ranging from 5 to 25 lbs.",
+    "price": 79.99,
+    "category": "equipment",
+    "image": "0021.jpeg",
+    "stock": 15
+    },
+    {
+    "name": "Resistance Bands",
+    "description": "Set of 5 resistance bands for strength training and rehab.",
+    "price": 15.99,
+    "category": "equipment",
+    "image": "0022.jpeg",
+    "stock": 100
+    },
+    {
+    "name": "Yoga Mat",
+    "description": "Non-slip yoga mat with extra cushioning for support.",
+    "price": 24.99,
+    "category": "equipment",
+    "image": "0023.jpeg",
+    "stock": 30
+    },
+    {
+    "name": "Kettlebell",
+    "description": "20 lb kettlebell with ergonomic grip for versatile workouts.",
+    "price": 34.99,
+    "category": "equipment",
+    "image": "0024.jpeg",
+    "stock": 25
+    },
+    {
+    "name": "Weight Bench",
+    "description": "Adjustable weight bench for bench presses and dumbbell exercises.",
+    "price": 129.99,
+    "category": "equipment",
+    "image": "0025.jpeg",
+    "stock": 10
+    },
+    {
+    "name": "Foam Roller",
+    "description": "High-density foam roller for muscle recovery and stretching.",
+    "price": 21.99,
+    "category": "equipment",
+    "image": "0026.jpeg",
+    "stock": 50
+    },
+    {
+    "name": "Pull-Up Bar",
+    "description": "Doorway pull-up bar for strength training at home.",
+    "price": 29.99,
+    "category": "equipment",
+    "image": "0027.jpeg",
+    "stock": 30
+    },
+    {
+    "name": "Protein Powder",
+    "description": "High-quality whey protein powder for muscle recovery.",
+    "price": 49.99,
+    "category": "supplements",
+    "image": "0041.jpeg",
+    "stock": 70
+    },
+    {
+    "name": "Creatine Monohydrate",
+    "description": "Micronized creatine for strength and performance gains.",
+    "price": 29.99,
+    "category": "supplements",
+    "image": "0042.jpeg",
+    "stock": 80
+    },
+    {
+    "name": "Multivitamin Tablets",
+    "description": "Complete multivitamin to support overall health.",
+    "price": 19.99,
+    "category": "supplements",
+    "image": "0043.jpeg",
+    "stock": 150
+    },
+    {
+    "name": "Fish Oil Capsules",
+    "description": "Omega-3 fish oil capsules to promote heart health.",
+    "price": 14.99,
+    "category": "supplements",
+    "image": "0044.jpeg",
+    "stock": 120
+    },
+    {
+    "name": "Pre-Workout Powder",
+    "description": "Energy-boosting pre-workout supplement for performance.",
+    "price": 39.99,
+    "category": "supplements",
+    "image": "0045.jpeg",
+    "stock": 50
+    },
+    {
+    "name": "BCAA Powder",
+    "description": "Branched-Chain Amino Acid supplement for muscle recovery.",
+    "price": 34.99,
+    "category": "supplements",
+    "image": "0046.jpeg",
+    "stock": 75
+    },
+    {
+    "name": "Vitamin D3",
+    "description": "High-potency Vitamin D3 capsules to support bone health.",
+    "price": 12.99,
+    "category": "supplements",
+    "image": "0047.jpeg",
+    "stock": 130
+    },
+    {
+    "name": "Magnesium Tablets",
+    "description": "Magnesium for muscle relaxation and improved sleep.",
+    "price": 14.99,
+    "category": "supplements",
+    "image": "0048.jpeg",
+    "stock": 110
+    },
+    {
+    "name": "Electrolyte Powder",
+    "description": "Rehydration electrolyte drink mix for endurance athletes.",
+    "price": 24.99,
+    "category": "supplements",
+    "image": "0049.jpeg",
+    "stock": 90
+    }
+]
