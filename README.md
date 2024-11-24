@@ -42,8 +42,10 @@
 ## Phase 3: Products and E-commerce
 
 1.	Products App: Fitness Products and Merchandise
-* **Create the products app**: Set up the product model (Product), and create the views and templates to list products.
-*	**Build Product Pages**: Create pages that display all products and individual product details.
+* **Create the products app**: Set up the product model (Product), and create the views and templates to list products. ✅  
+*	**Build Product Pages**: Create pages that display all products and individual product details. ✅
+* **Style Pages**: Style pages using bootstrap template
+* **Add Discount?**: Consider adding discounted_price / on_sale to data model. How could this interact with membership?
 *	**Implement Checkout (Non-Subscription Products)**: Add a simple cart and checkout system for non-subscription products, integrating with Stripe or PayPal.
 *	**URLs and Templates**: Build URLs for product listing (/products/) and checkout (/checkout/), and create associated templates.
 * **Product Categories**: Add product categories for better organization.
