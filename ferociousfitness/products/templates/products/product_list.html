@@ -3,6 +3,7 @@
 {% block title %}Products{% endblock title %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'products/css/bootstrap.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
 {% endblock css %}
 {% block content %}
 <h1 class="site-title">All Products</h1>
@@ -14,9 +15,6 @@
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center">
             {% for product in products %}
-            <div class="col mb-5">
-
-            <!-- Product  -->
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Sale badge-->
@@ -33,11 +31,11 @@
                             </a></h5>
                             <!-- Product reviews-->
                             <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
                             </div>
                             <!-- Product price-->
                             <!-- <span class="text-muted text-decoration-line-through">$20.00</span> -->
@@ -51,7 +49,6 @@
                 </div>
             </div>
             {% endfor %}
-            <!-- Close Section -->
         </div>
     </div>
 </section>
@@ -62,6 +59,4 @@
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<!-- <script src="js/scripts.js"></script> -->
-
 {% endblock content %}
