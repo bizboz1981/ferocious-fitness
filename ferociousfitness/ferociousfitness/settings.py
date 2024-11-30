@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "users",
     "booking",
     "products",
+    "cart",
     "django.contrib.sites",
     "allauth",
     "allauth.account",

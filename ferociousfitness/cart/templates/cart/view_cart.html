@@ -1,0 +1,32 @@
+{% extends "users/base.html" %}
+{% block title %}Shopping Cart{% endblock title %}
+{% block content %}
+<h1>Shopping Cart</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart.items.all %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>£{{ item.product.price }}</td>
+            <!-- <td>£{{ item.product.price }}</td> -->
+            <td>
+                <form action="{% url 'remove_from_cart' item.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
