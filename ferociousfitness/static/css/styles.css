@@ -290,3 +290,9 @@ section h3 {
     background-color: red;
     border-color: red;
 }
+
+#cart-order-total {
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 80%;
+}

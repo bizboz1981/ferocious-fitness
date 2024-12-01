@@ -14,6 +14,10 @@ class Cart(models.Model):
         auto_now_add=True
     )  # Timestamp when the cart was created
 
+    @property
+    def total_order_price(self):
+        return sum(item.subtotal for item in self.items.all())
+
 
 # Model representing an item in the shopping cart
 class CartItem(models.Model):
@@ -26,3 +30,7 @@ class CartItem(models.Model):
     quantity = models.PositiveIntegerField(
         default=1
     )  # Quantity of the product in the cart
+
+    @property
+    def subtotal(self):
+        return self.product.price * self.quantity

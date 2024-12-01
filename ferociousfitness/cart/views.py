@@ -13,12 +13,18 @@ def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     # Get or create a cart for the current user
     cart, created = Cart.objects.get_or_create(user=request.user)
+    # define quantity variable from form input
+    quantity = int(request.POST.get("quantity", 1))
     # Get or create a cart item for the product in the user's cart
     cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
     if not created:
-        # If the cart item already exists, increment the quantity
-        cart_item.quantity += 1
-        cart_item.save()
+        # If the cart item already exists, increment the quantity by the chosen number
+        # else set the quantity to the chosen number
+        cart_item.quantity += quantity
+    else:
+        cart_item.quantity = quantity
+    cart_item.save()
+
     # Flash message to confirm the product was added to the cart
     # Then redirect to the products page
     messages.success(
