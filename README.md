@@ -220,3 +220,4 @@ Happy coding!
   * https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
   * https://channels.readthedocs.io/en/latest/introduction.html#turtles-all-the-way-down
   * https://docs.fontawesome.com/web/use-with/python-django
+  * https://docs.djangoproject.com/en/5.1/ref/request-response/#django.http.HttpRequest.META
