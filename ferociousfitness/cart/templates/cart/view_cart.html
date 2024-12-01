@@ -2,24 +2,24 @@
 {% block title %}Shopping Cart{% endblock title %}
 {% block content %}
 <h1>Shopping Cart</h1>
-<table>
+<table id="cart-table" class="table table-striped">
     <thead>
         <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-            <th>Actions</th>
+            <th class="cart-header">Product</th>
+            <th class="cart-header">Quantity</th>
+            <th class="cart-header">Price</th>
+            <th class="cart-header">Total</th>
+            <th class="cart-header">Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for item in cart.items.all %}
-        <tr>
-            <td>{{ item.product.name }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>£{{ item.product.price }}</td>
-            <!-- <td>£{{ item.product.price }}</td> -->
-            <td>
+        <tr class="cart-item">
+            <td class="cart-product">{{ item.product.name }}</td>
+            <td class="cart-quantity">{{ item.quantity }}</td>
+            <td class="cart-price">£{{ item.product.price }}</td>
+            <td class="cart-total">£{{ item.product.price }}</td>
+            <td class="cart-actions">
                 <form action="{% url 'remove_from_cart' item.id %}" method="post">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger">Remove</button>
@@ -27,6 +27,7 @@
             </td>
         </tr>
         {% endfor %}
+        
     </tbody>
 </table>
 {% endblock content %}

@@ -247,3 +247,46 @@ section h3 {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* ----------------------------------------- Shopping Cart ----------------------------------------*/
+
+
+#cart-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+#cart-table thead {
+    background-color: #f8f9fa;
+}
+
+#cart-table th.cart-header {
+    padding: 12px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+#cart-table td.cart-product,
+#cart-table td.cart-quantity,
+#cart-table td.cart-price,
+#cart-table td.cart-total,
+#cart-table td.cart-actions {
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#cart-table .btn-danger {
+    background-color: #2d04d1;
+    border-color: #2d04d1;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#cart-table .btn-danger:hover {
+    background-color: red;
+    border-color: red;
+}
