@@ -219,3 +219,4 @@ Happy coding!
   * https://www.youtube.com/watch?v=XX8O2JNIOQo
   * https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
   * https://channels.readthedocs.io/en/latest/introduction.html#turtles-all-the-way-down
+  * https://docs.fontawesome.com/web/use-with/python-django
