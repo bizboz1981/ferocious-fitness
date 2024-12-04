@@ -57,7 +57,7 @@ class Order(models.Model):
 
     # String representation of the order
     def __str__(self):
-        return f"Order {self.id} by {self.user.username} on {self.created_at}"
+        return f"Order ID: {self.id}"
 
     # Get all items in the order
     @property

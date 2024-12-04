@@ -24,8 +24,28 @@ class CartItemAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ["user", "created_at", "total_price"]
     inlines = [OrderItemInline]
+    readonly_fields = ["user", "created_at", "total_price"]
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
     list_display = ["order", "product", "quantity", "price"]
+    readonly_fields = ["order", "product", "quantity", "price"]
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
