@@ -50,6 +50,7 @@
 * **Product Categories**: Add product categories for better organization. ✅  
 * **Search Functionality**: Implement a search feature to help users find products easily.
 * **Inventory Management**: Include inventory tracking to manage stock levels.
+* **Order History**: Add model to track order histor in django admin
 
 2. Cart App: VCreate bespoke app for cart, separate to Products
 *	**Implement Checkout (Non-Subscription Products)**: Add a simple cart and checkout system for products, integrating with Stripe 

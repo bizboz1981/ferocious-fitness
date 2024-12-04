@@ -1,9 +1,10 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.safestring import mark_safe
 from products.models import Product
 
-from .models import Cart, CartItem
+from .models import Cart, CartItem, Order
 
 # Create your views here.
 
@@ -50,3 +51,21 @@ def remove_from_cart(request, item_id):
     cart_item.delete()
     # Redirect to the cart detail view
     return redirect("view_cart")
+
+
+@login_required
+def complete_order(request):
+    # Get the cart for the current user or return 404 if not found
+    cart = get_object_or_404(Cart, user=request.user)
+    # Create an order from the cart
+    order = cart.create_order()
+    # Flash message to confirm the order was completed successfully
+    messages.success(request, "Your order has been completed successfully.")
+    # Redirect to the order confirmation page with the order ID
+    return redirect("order_confirmation", order_id=order.id)
+
+
+@login_required
+def order_confirmation(request, order_id):
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    return render(request, "cart/order_confirmation.html", {"order": order})
