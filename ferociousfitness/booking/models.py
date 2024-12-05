@@ -11,6 +11,7 @@ class ClassType(models.Model):
         name (str): The name of the class type.
         description (str, optional): A brief description of the class type.
     """
+
     name = models.CharField(max_length=50)  # E.g., "Group Class" or "PT Session"
     description = models.TextField(blank=True, null=True)
 
@@ -37,6 +38,7 @@ class Session(models.Model):
         spots_remaining(): Returns the number of spots remaining in the session.
         is_full(): Checks if the session is fully booked.
     """
+
     SESSION_TYPES = [
         ("group", "Group Class"),
         ("pt", "Personal Training"),
@@ -80,6 +82,7 @@ class Booking(models.Model):
         save(*args, **kwargs): Saves the booking and increments the session's participant count.
         delete(*args, **kwargs): Deletes the booking and decrements the session's participant count.
     """
+
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     session = models.ForeignKey(
         Session, on_delete=models.CASCADE, related_name="bookings"
@@ -108,7 +111,9 @@ class Booking(models.Model):
 
     def delete(self, *args, **kwargs):
         # Decrement participants when a booking is cancelled
-        if not self.session.is_full():
+        if (
+            not self.session.is_full()
+        ):  # This check is not logically necessary - refactor
             self.session.current_participants -= 1
             self.session.save()
         super().delete(*args, **kwargs)
