@@ -1,10 +1,15 @@
+import stripe
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 from products.models import Product
 
 from .models import Cart, CartItem, Order
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 # Create your views here.
 
@@ -76,14 +81,44 @@ def complete_order(request):
         order.country = country
         order.save()
 
-        # Flash message to confirm the order was completed successfully
-        messages.success(request, "Your order has been completed successfully.")
-        # Redirect to the order confirmation page with the order ID
-        return redirect("order_confirmation", order_id=order.id)
+        # Create a Stripe Checkout session
+        session = stripe.checkout.Session.create(
+            payment_method_types=["card"],
+            line_items=[
+                {
+                    "price_data": {
+                        "currency": "gbp",
+                        "product_data": {
+                            "name": item.product.name,
+                        },
+                        "unit_amount": int(item.product.price * 100),
+                    },
+                    "quantity": item.quantity,
+                }
+                for item in order.items
+            ],
+            mode="payment",
+            success_url=request.build_absolute_uri(
+                reverse("order_confirmation", args=[order.id])
+            ),
+            cancel_url=request.build_absolute_uri(reverse("view_cart")),
+            client_reference_id=order.id,
+        )
+
+        # Redirect to the Stripe Checkout page
+        return redirect(session.url, code=303)
     return redirect("view_cart")
 
 
 @login_required
 def order_confirmation(request, order_id):
     order = get_object_or_404(Order, id=order_id, user=request.user)
+    session_id = request.GET.get("session_id")
+
+    if session_id:
+        session = stripe.checkout.Session.retrieve(session_id)
+        if session.payment_status == "paid":
+            order.paid = True
+            order.save()
+
     return render(request, "cart/order_confirmation.html", {"order": order})
