@@ -51,14 +51,36 @@ def remove_from_cart(request, item_id):
 
 @login_required
 def complete_order(request):
-    # Get the cart for the current user or return 404 if not found
-    cart = get_object_or_404(Cart, user=request.user)
-    # Create an order from the cart
-    order = cart.create_order()
-    # Flash message to confirm the order was completed successfully
-    messages.success(request, "Your order has been completed successfully.")
-    # Redirect to the order confirmation page with the order ID
-    return redirect("order_confirmation", order_id=order.id)
+    if request.method == "POST":
+        # Get the form data
+        name = request.POST.get("name")
+        address_line1 = request.POST.get("address_line1")
+        address_line2 = request.POST.get("address_line2")
+        address_line3 = request.POST.get("address_line3")
+        city = request.POST.get("city")
+        postcode = request.POST.get("postcode")
+        country = request.POST.get("country")
+
+        # Get the cart for the current user or return 404 if not found
+        cart = get_object_or_404(Cart, user=request.user)
+        # Create an order from the cart
+        order = cart.create_order()
+
+        # Set the order details from the form data
+        order.name = name
+        order.address_line1 = address_line1
+        order.address_line2 = address_line2
+        order.address_line3 = address_line3
+        order.city = city
+        order.postcode = postcode
+        order.country = country
+        order.save()
+
+        # Flash message to confirm the order was completed successfully
+        messages.success(request, "Your order has been completed successfully.")
+        # Redirect to the order confirmation page with the order ID
+        return redirect("order_confirmation", order_id=order.id)
+    return redirect("view_cart")
 
 
 @login_required

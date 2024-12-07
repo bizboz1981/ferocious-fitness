@@ -52,7 +52,7 @@
 * **Inventory Management**: Include inventory tracking to manage stock levels.
 * **Order History**: Add model to track order histor in django admin ✅  
 * Field called user type: user, staff, admin
-* Hide login/signup
+* Hide login/signup ✅  
 * add 'view bookings', view orders etc, buttons for staff
 * staff should be able to add sessions, products
 * Amazon S3 

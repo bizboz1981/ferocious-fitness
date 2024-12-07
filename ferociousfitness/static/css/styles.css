@@ -303,3 +303,14 @@ section h3 {
     z-index: 100;
     visibility: visible;
 }
+
+/* ----------------------------------------- General Form Styling ----------------------------------- */
+
+.customer-details-form {
+    width: 33.33%;
+    margin: 0 auto;
+    padding: 20px;
+    /* background-color: #fff; */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
