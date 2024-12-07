@@ -296,3 +296,10 @@ section h3 {
     font-weight: bold;
     width: 80%;
 }
+
+.fa-solid {
+    color: inherit;
+    display: inline-block;
+    z-index: 100;
+    visibility: visible;
+}

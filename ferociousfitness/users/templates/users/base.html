@@ -12,6 +12,8 @@
     {% block extra-meta %}
     {% endblock extra-meta %}
 
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+
     {% block css %}
         <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -58,11 +60,21 @@
                         <li><a class="dropdown-item" href="{% url 'product_list' %}?category=clothing">Clothing</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'view_cart' %}">Cart 🛒</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{% url 'profile' %}" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="{% url 'profile' %}">View Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                    </ul>
+                </li>
+                {% else %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Signup</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'view_cart' %}"><i class="fa-solid fa-cart-shopping" style="color: black !important; z-index: 10"></i></a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>
