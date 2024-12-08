@@ -1,0 +1,52 @@
+{% extends "users/base.html" %}
+
+{% block title %}
+    Index Page
+{% endblock title %}
+
+{% block content %}
+<h1 class="site-title">Ferocious Fitness</h1>
+<h2 class="tagline">Empowering People Through Fitness</h2>
+
+<section id="welcome-section">
+    <p class="intro-text">Welcome to Ferocious Fitness, where we believe that everyone has the power to transform their body and mind through fitness. Whether you're just starting out or looking to push your limits, we're here to support you every step of the way. Our mission is to inspire and empower people to lead healthier, happier lives by providing expert guidance, tailored workout plans, and a supportive community.</p>
+</section>
+
+<section id="why-choose-section">
+    <h3>Why Choose Ferocious Fitness?</h3>
+    <ul class="benefits-list">
+        <li><strong>Personalized Plans:</strong> Every body is unique, and so are your goals. Get customized workout and nutrition plans that fit your lifestyle and needs.</li>
+        <li><strong>Experienced Trainers:</strong> Our certified trainers are here to guide you, motivate you, and help you safely reach your full potential.</li>
+        <li><strong>Supportive Community:</strong> Join a community of like-minded individuals who inspire and support each other on their fitness journeys.</li>
+        <li><strong>Flexible Options:</strong> From in-person classes to online workouts and personal training, we offer a range of options to suit your schedule.</li>
+    </ul>
+</section>
+
+<section id="offerings-section">
+    <h3>What We Offer</h3>
+    <div class="offerings">
+        <div class="offering">
+            <h4>Personal Training</h4>
+            <p>Work one-on-one with a trainer to create a program tailored specifically to your goals, whether that’s strength, endurance, weight loss, or something else.</p>
+        </div>
+        <div class="offering">
+            <h4>Group Classes</h4>
+            <p>From high-energy HIIT sessions to calming yoga, our group classes are designed to keep you engaged, motivated, and pushing your limits.</p>
+        </div>
+        <div class="offering">
+            <h4>Online Workouts</h4>
+            <p>Access a variety of workouts anytime, anywhere. Perfect for those with busy schedules or who prefer to work out from home.</p>
+        </div>
+        <div class="offering">
+            <h4>Products</h4>
+            <p>Our nutrition products and fitness equipment strengthen and fuel your body the right way.</p>
+        </div>
+    </div>
+</section>
+
+<section id="cta-section">
+    <h3>Join Us and Unleash Your Potential</h3>
+    <p class="cta-text">Ready to make a change? Sign up today and discover the strength and confidence that come with a healthy, active lifestyle. Let’s get started on your journey to becoming ferociously fit!</p>
+    <button class="cta-button" onclick="location.href='{% url 'account_signup' %}'">Get Started</button>
+</section>
+{% endblock content %}

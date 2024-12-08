@@ -1,0 +1,52 @@
+{% extends "users/base.html" %}
+
+{% block title %}
+    Booking Page
+{% endblock title %}
+
+{% block content %}
+    <h1 class="site-title">Book Your Fitness Session</h1>
+
+    <!-- Display messages -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Session List -->
+    <section class="sessions-list">
+        {% for session in sessions %}
+            <div class="session-card">
+                <h2>{{ session.title }}</h2>
+                <p><strong>Date:</strong> {{ session.date }}</p>
+                <p><strong>Time:</strong> {{ session.time }}</p>
+                <p><strong>Location:</strong> {{ session.location }}</p>
+                <p><strong>Description:</strong> {{ session.description }}</p>
+                <p><strong>Available Spots:</strong> 
+                    {% if session.spots_remaining > 0 %}
+                        {{ session.spots_remaining }}
+                    {% else %}
+                        <span class="full">Fully Booked</span>
+                    {% endif %}
+                </p>
+
+                <!-- Booking Button -->
+                {% if session.spots_remaining > 0 %}
+                    <form action="{% url 'book_session' session.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="book-btn">Book Now</button>
+                    </form>
+                {% else %}
+                    <button class="book-btn disabled" disabled>Fully Booked</button>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>No sessions available at the moment. Please check back later.</p>
+        {% endfor %}
+    </section>
+{% endblock content %}
