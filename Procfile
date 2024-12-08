@@ -1,1 +1,1 @@
-web: gunicorn ferociousfitness.wsgi
+web: gunicorn ferociousfitness.ferociousfitness.wsgi:application
