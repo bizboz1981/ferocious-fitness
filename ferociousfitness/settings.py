@@ -33,7 +33,12 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "ferocious-fitness.herokuapp.com"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "ferocious-fitness.herokuapp.com",
+    "ferocious-fitness-1a2086a68872.herokuapp.com",
+]
 
 
 # Application definition
