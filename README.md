@@ -55,7 +55,7 @@
 * Hide login/signup ✅  
 * add 'view bookings', view orders etc, buttons for staff
 * staff should be able to add sessions, products
-* Amazon S3 
+* Amazon S3 🔸  
 * Create unit tests - test the views, models, forms, for any/all apps
 
 2. Cart App: VCreate bespoke app for cart, separate to Products
