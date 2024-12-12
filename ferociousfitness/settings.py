@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import logging
 import os
 from pathlib import Path
 
@@ -209,3 +210,5 @@ STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
 STRIPE_PUBLISHABLE_KEY = os.getenv("STRIPE_PUBLISHABLE_KEY")
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
+
+logging.basicConfig(level=logging.DEBUG)
