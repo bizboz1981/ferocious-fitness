@@ -13,7 +13,6 @@ class Command(BaseCommand):
             "s3",
             aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
             aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
-        )
         static_root = settings.STATIC_ROOT
         bucket = settings.AWS_STORAGE_BUCKET_NAME
         for root, dirs, files in os.walk(static_root):
@@ -25,4 +24,5 @@ class Command(BaseCommand):
                     self.style.SUCCESS(
                         f"Uploaded {file_path} to s3://{bucket}/static/{s3_path}"
                     )
+                )
                 )
