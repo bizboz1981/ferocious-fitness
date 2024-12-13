@@ -48,10 +48,13 @@ class Profile(models.Model):
                 aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
                 aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
             )
-            file_path = self.profile_pic.path
-            bucket = settings.AWS_STORAGE_BUCKET_NAME
-            s3_path = f"media/{self.profile_pic.name}"
-            s3_client.upload_file(file_path, bucket, s3_path)
+            file_name = f"profile_pics/{self.user.username}.jpg"
+            s3_client.put_object(
+                Bucket=settings.AWS_STORAGE_BUCKET_NAME,
+                Key=file_name,
+                Body=bytes(self.profile_pic),  # Convert memoryview to bytes
+                ContentType="image/jpeg",
+            )
 
 
 # Automatically create a profile for each user when they are created
