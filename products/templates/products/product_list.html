@@ -10,6 +10,22 @@
 {% block content %}
 <h1 class="site-title">All Products</h1>
 
+<!-- Search and Filter Form -->
+<form method="get" action="{% url 'product_list' %}" class="mb-4">
+    <div class="input-group mb-3">
+        <input type="text" name="search" class="form-control" placeholder="Search products..." value="{{ request.GET.search }}">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+    <div class="input-group">
+        <select name="sort_by" class="form-select">
+            <option value="">Sort by</option>
+            <option value="price_asc" {% if request.GET.sort_by == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
+            <option value="price_desc" {% if request.GET.sort_by == 'price_desc' %}selected{% endif %}>Price: High to Low</option>
+        </select>
+        <button type="submit" class="btn btn-secondary">Sort</button>
+    </div>
+</form>
+
 <!-- <---- bootstrap html ---->
 
 <!-- Section -->
