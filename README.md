@@ -1,5 +1,10 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+
+* Add search/filter feature
+* When upload images on django admin, img needs to upload to S3
+* Improve responsiveness
+
 # Project Flow Summary
 ✅ Tested and working 🔸 Partially Implemented 🛑 Not yet implemented 💀 Feature abandoned
 
