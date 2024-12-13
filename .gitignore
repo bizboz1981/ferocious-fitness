@@ -9,3 +9,4 @@ node_modules/
 cloudinary_python.txt
 .env
 staticfiles/
+test_upload_2.py
