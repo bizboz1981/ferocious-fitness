@@ -1,3 +1,5 @@
+import boto3
+from django.conf import settings
 from django.db import models
 
 
@@ -29,3 +31,16 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.image:
+            s3_client = boto3.client(
+                "s3",
+                aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+            )
+            file_path = self.image.path
+            bucket = settings.AWS_STORAGE_BUCKET_NAME
+            s3_path = f"media/{self.image.name}"
+            s3_client.upload_file(file_path, bucket, s3_path)

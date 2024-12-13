@@ -1,5 +1,7 @@
 import io
 
+import boto3
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
@@ -37,6 +39,19 @@ class Profile(models.Model):
             img_byte_arr = io.BytesIO()
             img.save(img_byte_arr, format=img.format)
             self.profile_pic = img_byte_arr.getvalue()
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.profile_pic:
+            s3_client = boto3.client(
+                "s3",
+                aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+            )
+            file_path = self.profile_pic.path
+            bucket = settings.AWS_STORAGE_BUCKET_NAME
+            s3_path = f"media/{self.profile_pic.name}"
+            s3_client.upload_file(file_path, bucket, s3_path)
 
 
 # Automatically create a profile for each user when they are created
