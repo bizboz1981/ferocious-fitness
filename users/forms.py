@@ -1,4 +1,8 @@
 from django import forms
+from django.core.exceptions import ValidationError
+from django.utils import timezone
+
+from booking.models import Session
 
 from .models import Profile
 
@@ -22,3 +26,46 @@ class ProfileForm(forms.ModelForm):
         if commit:
             profile.save()
         return profile
+
+
+class SessionForm(forms.ModelForm):
+    class Meta:
+        # Specify the model to use for the form
+        model = Session
+        # Fields to include in the form
+        fields = [
+            "title",
+            "description",
+            "session_type",
+            "date",
+            "time",
+            "location",
+            "max_participants",
+        ]
+        widgets = {
+            "date": forms.DateInput(attrs={"type": "date"}),
+            "time": forms.TimeInput(attrs={"type": "time"}),
+        }
+
+    def clean_date(self):
+        # Get the date from the cleaned data
+        date = self.cleaned_data.get("date")
+        # Check if the date is in the past
+        if date < timezone.now().date():
+            # Raise a validation error if the date is in the past
+            raise ValidationError("The date cannot be in the past.")
+        # Return the cleaned date
+        return date
+
+    def clean_time(self):
+        # Get the time from the cleaned data
+        time = self.cleaned_data.get("time")
+        # Check if the date is today and the time is in the past
+        if (
+            self.cleaned_data.get("date") == timezone.now().date()
+            and time < timezone.now().time()
+        ):
+            # Raise a validation error if the time is in the past
+            raise ValidationError("The time cannot be in the past.")
+        # Return the cleaned time
+        return time
