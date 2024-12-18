@@ -5,6 +5,66 @@
 {% endblock title %}
 
 {% block content %}
+<style>
+    .cta-button {
+        padding: 8px 16px !important; /* Smaller padding */
+        font-size: 1em !important; /* Smaller font size */
+        color: #fff !important;
+        background-color: #ff5722 !important;
+        border: none !important;
+        border-radius: 5px !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s !important;
+        margin: 10px 0 !important; /* Add margin */
+        width: auto !important; /* Ensure width is auto */
+    }
+
+    .cta-button:hover {
+        background-color: #e64a19 !important;
+    }
+
+    /* Specific Button Styling by ID */
+    #update-profile-btn,
+    #submit-profile-btn,
+    [id^="cancel-booking-btn-"],
+    #get-started-btn {
+        padding: 8px 16px !important;
+        font-size: 1em !important;
+        color: #fff !important;
+        background-color: #ff5722 !important;
+        border: none !important;
+        border-radius: 5px !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s !important;
+        margin: 10px 0 !important; 
+        width: auto !important; 
+    }
+
+    #update-profile-btn:hover,
+    #submit-profile-btn:hover,
+    [id^="cancel-booking-btn-"]:hover,
+    #get-started-btn:hover {
+        background-color: #e64a19 !important;
+    }
+
+    /* Responsive Button Styling */
+    @media (max-width: 768px) {
+        .cta-button,
+        #update-profile-btn,
+        #submit-profile-btn,
+        [id^="cancel-booking-btn-"],
+        #get-started-btn {
+            width: 100% !important;
+            font-size: 0.9em !important;
+        }
+    }
+
+    /* Home Page Specific Button Styling */
+    #cta-section .cta-button {
+        width: 250px !important; 
+        margin: 20px auto !important;
+    }
+</style>
 <h1 class="site-title">Ferocious Fitness</h1>
 <h2 class="tagline">Empowering People Through Fitness</h2>
 
@@ -47,6 +107,6 @@
 <section id="cta-section">
     <h3>Join Us and Unleash Your Potential</h3>
     <p class="cta-text">Ready to make a change? Sign up today and discover the strength and confidence that come with a healthy, active lifestyle. Let’s get started on your journey to becoming ferociously fit!</p>
-    <button class="cta-button" onclick="location.href='{% url 'account_signup' %}'">Get Started</button>
+    <button id="get-started-btn" class="cta-button" onclick="location.href='{% url 'account_signup' %}'">Get Started</button>
 </section>
 {% endblock content %}
