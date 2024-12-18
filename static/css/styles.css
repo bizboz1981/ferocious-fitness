@@ -373,11 +373,25 @@ section h3 {
 
 /* ----------------------------------------- General Form Styling ----------------------------------- */
 
+/* General styling for the customer details form */
 .customer-details-form {
-    width: 33.33%;
+    width: 90%; /* Default width */
     margin: 0 auto;
     padding: 20px;
-    /* background-color: #fff; */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .customer-details-form {
+        width: 80% !important; /* Increase width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .customer-details-form {
+        width: 95% !important; /* Further increase width on very small screens */
+    }
 }
