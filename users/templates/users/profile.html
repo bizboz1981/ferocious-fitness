@@ -4,70 +4,74 @@
 {% block title %}
     {{ user.username }}'s Profile
 {% endblock title %}
-{% block content %}
-<h1 id="site-title">{{ user.username }}'s Profile</h1>
+{% block css %}
+<style>
+    .cta-button {
+        padding: 8px 16px !important;
+        font-size: 1em !important;
+        color: #fff !important;
+        background-color: #ff5722 !important;
+        border: none !important;
+        border-radius: 5px !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s !important;
+        margin: 10px 0 !important;
+        width: auto !important;
+    }
 
-<div class="profile-content">
-    <style>
-        .cta-button {
-            padding: 8px 16px !important;
-            font-size: 1em !important;
-            color: #fff !important;
-            background-color: #ff5722 !important;
-            border: none !important;
-            border-radius: 5px !important;
-            cursor: pointer !important;
-            transition: background-color 0.3s !important;
-            margin: 10px 0 !important;
-            width: auto !important;
-        }
+    .cta-button:hover {
+        background-color: #e64a19 !important;
+    }
 
-        .cta-button:hover {
-            background-color: #e64a19 !important;
-        }
+    /* Specific Button Styling by ID */
+    #update-profile-btn,
+    #submit-profile-btn,
+    [id^="cancel-booking-btn-"],
+    #get-started-btn {
+        padding: 8px 16px !important;
+        font-size: 1em !important;
+        color: #fff !important;
+        background-color: #ff5722 !important;
+        border: none !important;
+        border-radius: 5px !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s !important;
+        margin: 10px 0 !important;
+        width: auto !important;
+    }
 
-        /* Specific Button Styling by ID */
+    #update-profile-btn:hover,
+    #submit-profile-btn:hover,
+    [id^="cancel-booking-btn-"]:hover,
+    #get-started-btn:hover {
+        background-color: #e64a19 !important;
+    }
+
+    /* Responsive Button Styling */
+    @media (max-width: 768px) {
+        .cta-button,
         #update-profile-btn,
         #submit-profile-btn,
         [id^="cancel-booking-btn-"],
         #get-started-btn {
-            padding: 8px 16px !important;
-            font-size: 1em !important;
-            color: #fff !important;
-            background-color: #ff5722 !important;
-            border: none !important;
-            border-radius: 5px !important;
-            cursor: pointer !important;
-            transition: background-color 0.3s !important;
-            margin: 10px 0 !important;
-            width: auto !important;
+            width: 100% !important;
+            font-size: 0.9em !important;
         }
+    }
 
-        #update-profile-btn:hover,
-        #submit-profile-btn:hover,
-        [id^="cancel-booking-btn-"]:hover,
-        #get-started-btn:hover {
-            background-color: #e64a19 !important;
-        }
+    /* Profile Page Specific Button Styling */
+    .profile-content .cta-button {
+        margin-top: 20px !important;
+    }
+    
+</style>
+{% endblock css %}
 
-        /* Responsive Button Styling */
-        @media (max-width: 768px) {
-            .cta-button,
-            #update-profile-btn,
-            #submit-profile-btn,
-            [id^="cancel-booking-btn-"],
-            #get-started-btn {
-                width: 100% !important;
-                font-size: 0.9em !important;
-            }
-        }
+{% block content %}
+<h1 id="site-title">{{ user.username }}'s Profile</h1>
 
-        /* Profile Page Specific Button Styling */
-        .profile-content .cta-button {
-            margin-top: 20px !important;
-        }
-        
-    </style>
+<div class="profile-content">
+
     <!-- Display profile picture if available -->
     {% if profile.get_profile_pic %}
         <img src="data:image/jpeg;base64,{{ profile.get_profile_pic|b64encode }}" alt="Profile Picture" class="profile-pic">

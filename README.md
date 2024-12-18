@@ -1,9 +1,177 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![Homepage](media/img/homepage.jpeg)
+
+Link to live project: [Ferocious Fitness](https://ferocious-fitness-1a2086a68872.herokuapp.com/index.html) 
+
+## Table of Contents
+- [Project Background & Summary](#project-background--summary)
+- [User Experience (UX)](#user-experience-ux)
+- [Features & Structure](#features--structure)
+- [Design](#design)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+- [References & Resources Used](#references--resources-used)
+
+## Project Background & Summary
+This project is a Django-based fitness club website. The motivation behind this project was to provide a user-friendly application for managing fitness sessions, tracking user progress, and maintaining user profiles. It aims to merge the power of Django as a Python web framework with a clean and intuitive frontend, making club management simple and efficient. The project demonstrates the ease of CRUD (Create, Read, Update, Delete) operations with Django.
+
+The project provides a simple interface where users can view, book, and manage fitness sessions, update their profiles, and buy products. This is designed to be flexible enough for expansion and suitable for different types of users, from fitness enthusiasts to personal trainers.
+
+The scope of the project changed significantly over the course of development. As can be seen from the project flow summary below, many features have been abandoned. In fact, the project is not working as smoothly as I would like, and there are a number or known bugs that I have been unable to solve in the time available to me. Notable issues are:
+
+* Styling: For some reason, some key styles were not being applied as they ought to have been. I tried debugging this is every way I could think of, and in the end resorted to putting custom css in the html files. I know this is bad practice, and no doubt I would have been able to debug given enough time.
+* Signup is required for booking on to fitness sessions. This should be behind a paywall, but I ran out of development time.
+* Staff should also be able to review the number of bookings so they can see which members are booked onto upcoming sessions.
+* Users should be able to review orders they have placed, but cannot currently do so.
+
+### The initial data model
+![data_model_1](media/img/django_data_model.jpeg)
+
+## User Experience (UX)
+### User Stories
+#### First Time Visitor Goals
+
+|Goal   |Achieved?|
+|-------|---------|
+|As a First Time Visitor, I want to easily understand the purpose of the application and how to navigate through it.|The purpose of the app is clear and navigation is intuitive|
+|As a First Time Visitor, I want to be able to search for fitness sessions and see the details.|The search function is obvious on the home page and session/product links are clearly displayed|
+|As a First Time Visitor, I want a simple way to buy products and consider signing up.|There is a navbar link for all relevant sections|
+
+#### Returning Visitor Goals
+|Goal   |Achieved?|
+|-------|---------|
+|As a Returning Visitor, I want to easily find the sessions I have booked onto.|These are visible in the Profile section|
+|As a Returning Visitor, I want to view product orders I have placed.|This is currently unavailable|
+|As a Returning Visitor, I want to stay informed about any new updates to the platform.|There is currently no mechanism to do this|
+
+#### Frequent Visitor Goals
+|Goal   |Achieved?|
+|-------|---------|
+|As a Frequent Visitor, I want to see all the upcoming sessions I have booked onto.|These are displayed in date order on the profile page|
+|As a Frequent Visitor, I want to ensure that the system functions smoothly with all its features, including booking management and purchasing products.|Bookings can be made and cancelled with ease. Booking onto the same class twice is not possible|
+|As a Frequent Visitor, I want to access the system without any technical errors or bugs.|Currently, everything runs smoothly|
+
+## Features & Structure
+### Existing Features
+- **Homepage & Navigation**: The homepage provides users with a clean and simple interface, displaying basic information about the Ferociously Fit club.
+- **Product Listing**: Users can view products, choose between buy now and add to basket, and proceed to checkout.
+- **Add/Edit/Delete Profile`**: Users can edit their profile information.
+- **Session Management**: Users can book onto sessions and cancel sessions.
+- **User Authentication**: Authentication ensures that only registered users can access full functionality, including booking onto sessions (although this should be behind a paywall).
+- **Search Functionality**: A search bar allows users to quickly find and sort products.
+
+### Future Features
+- Improve general styling. I'm aware that the styling leaves much to be desired, however with limited time, my focus was on the data and business logic.
+- Put signup behind a paywall
+- Add email notifications to confirm booking sessions and product purchase
+- Allow different ways of displaying the products (e.g. alphabetically, most popular etc.)
+- Hook up email functionality
+- If the project were to grow any larger I would modularise the codebase
+
+## Design
+
+### Colour Scheme
+The application uses neutral colors, such as off-whites and browns, to maintain a classic and functional appearance, without unnecessary distractions. However, a skilled designer would improve the look and feel no end.
+
+## Technologies Used
+### Languages
+- Python (Django framework)
+- HTML5
+- CSS3
+- JavaScript (for frontend interactivity)
+
+### Applications
+- Git - for version control.
+- GitHub - for version control and hosting.
+- Visual Studio Code - for developing the project.
+
+### Frameworks, Libraries & Tools
+- Django - The primary backend framework.
+- Django template language - For templating in HTML.
+- PostgreSQL - for production database system.
+- Bootstrap - For responsive and mobile-friendly design.
+
+### Other Tech & VS Code Extensions
+- [Flask Debug Toolbar](https://flask-debugtoolbar.readthedocs.io/) - for debugging and testing.
+- [Prettier](https://prettier.io) - for code formatting.
+- [Github Copilot](https://github.com/features/copilot) for debugging and efficient use of terminal. Please note that I was unable to get Django to automatically upload my static and media files to S3. I was able to get this to work with a manual script thanks to Copilot. These scripts are here: ferociousfitness/management/commands/upload_xxx_to_s3.py.
+- ChatGPT/DALLE for generating original images
+
+### Learning Resources
+- [Django Documentation](https://docs.djangoproject.com/en/5.1/) - for backend guidance.
+- [W3Schools](https://www.w3schools.com) - for frontend and design inspiration.
+- [Stack Overflow](https://stackoverflow.com) - used extensively throughout the project. Too many articles to list individually.
+- [Codecademy](https://www.codecademy.com) - the course on Django was invaluable.
+- * Other References  
+  * https://dev.to/chukslord1/building-an-appointment-scheduler-app-with-django-and-fauna-2n9o
+  * https://www.youtube.com/watch?v=XX8O2JNIOQo
+  * https://docs.djangoproject.com/en/5.1/ref/contrib/messages/
+  * https://channels.readthedocs.io/en/latest/introduction.html#turtles-all-the-way-down
+  * https://docs.fontawesome.com/web/use-with/python-django
+  * https://docs.djangoproject.com/en/5.1/ref/request-response/#django.http.HttpRequest.META
+
+## Testing
+Extensive manual testing has been carried out to ensure all CRUD operations, form validations, and database interactions work correctly.
+
+### Features Testing
+| Feature             | Test Case                               | Outcome                                     |
+| ------------------- | --------------------------------------- | ------------------------------------------- |
+| Product Search      | Search for a product by title           | Search results display correct entries      |
+| Book Session        | View and book onto upcoming sessions    | Sessions are bookable and user feedback confirmation works    |
+| Edit Booking Details| Cancellation of existing bookings       | Cancellation works with feedback            |
+| Edit Profile        | Edit personal details in profile page   | Details can be successfully changed         |
+| Add Product to Cart | Add a product to the shopping cart      | Product is added to the cart and cart updates correctly |
+| Checkout Process    | Complete the checkout process           | Order is placed successfully and confirmation is displayed |
+| User Registration   | Register a new user account             | User account is created successfully |
+| Login               | Log in with existing user credentials   | User is logged in and redirected to the dashboard |
+| Add Session         | Add a new fitness session as staff      | Session is added and displayed in upcoming sessions |
+| Cancel Session      | Cancel a booked session                 | Session is cancelled and user receives confirmation |
+| Subscription Management | Subscribe to a membership plan     | Subscription is created but payment is not processed |
+| Responsive Design   | Access the site on different devices    | Site layout adjusts correctly for mobile and tablet views, though I am unhappy with this overall responsiveness |
 
 
-* Add search/filter feature
-* When upload images on django admin, img needs to upload to S3
-* Improve responsiveness
+### Browser Testing
+| Browser             | Compatibility | Responsiveness | Issues   |
+| ------------------- | ------------- | -------------- | -------- |
+| Chrome              | Good          | Okay           | Some CSS isn't linking properly     |
+| Firefox             | Good          | Okay           | Some CSS isn't linking properly     |
+| Safari              | Good          | Okay           | Some CSS isn't linking properly     |
+| Edge                | Good          | Okay           | Some CSS isn't linking properly     |
+
+### Online Validation Services
+- **HTML Validator**: Validated with no major errors.
+- **CSS Validator**: Passed with no significant issues (3 warnings I have chosen to ignore as insignificant).
+- **Flask Debugging**: Used Flask's built-in debugger to resolve any backend issues.
+- **PEP 8**: I used flake8 to format my python files according to PEP8 standards. I have exceeded the line length of 79 chars on a few considered occasions as strict adherence would have compromised readability.
+
+## Deployment
+The application is deployed on Heroku. 
+
+Please feel free to clone the project and use it for your own site. In order to do this:
+
+### Cloning the Repo
+1. Open your terminal and run the following command to clone the repository:```git clone https://github.com/bizboz1981/CI3-flask-books```
+2. cd into the new project directory: ```cd CI3-flask-books```
+3. Create and activate a virtual environment: <br>```python3 -m venv venv```<br>```source venv/bin/activate``` (On Windows use `venv\Scripts\activate`)
+4. Install the required dependencies from the requirements.txt file: ```pip install -r requirements.txt```
+5. Create a .env file in the root directory and add the necessary environment variables: ```touch .env```
+6. Add the following lines to the .env file: <br> ```SECRET_KEY=your_secret_key``` <br> ```DATABASE_URL=your_database_url``` <br> ```STRIPE_SECRET_KEY=your_stripe_key_here```<br>
+```STRIPE_PUBLISHABLE_KEY=your_public_stripe_key_here```<br>
+```STRIPE_WEBHOOK_SECRET=your_stripe_webhook_key_here```<br>
+```AWS_ACCESS_KEY_ID=your_aws_key```<br>
+```AWS_SECRET_ACCESS_KEY=your_secret_aws_key```<br>
+```USE_AWS=True```
+
+
+### Deploy to Heroku
+1. Log in to your Heroku account using the Heroku CLI: ```heroku login```
+2. Create a new Heroku app: ```heroku create your-app-name```
+3. Set environment variables on Heroku:<br>```heroku config:set SECRET_KEY=your_secret_key```
+4. Deploy the application to Heroku: ```git push heroku main```
+
+
+I would like to thank my mentor Jack Wachira for his help and advice.
 
 # Project Flow Summary
 ✅ Tested and working 🔸 Partially Implemented 🛑 Not yet implemented 💀 Feature abandoned
@@ -39,10 +207,10 @@
 * **Build Live Session Listings**: Create views and templates to list all upcoming live sessions and allow users to book limited spaces.  ✅  
 * **Build Booking Functionality**: Ensure that registered users can book sessions, and handle capacity limits (max participants).  ✅  
 * **Build Dashboard for Managing Bookings**: Update the user dashboard to display booked sessions and allow users to cancel bookings if needed.   ✅  
-  * If a session is cancelled and goes from 'full' to 'not full', how do I remove 'disabled' class from html 'book now' button? ❓❓❓
+  * If a session is cancelled and goes from 'full' to 'not full', how do I remove 'disabled' class from html 'book now' button?  💀  
 * **URLs and Templates**: Implement URLs for session listings (/sessions/), booking (/sessions/<id>/book/), and bookings management.  
-* **Notifications**: Add email or SMS notifications for session bookings and reminders.
-* **Calendar Integration**: Allow users to add booked sessions to their personal calendars.
+* **Notifications**: Add email or SMS notifications for session bookings and reminders. 💀  
+* **Calendar Integration**: Allow users to add booked sessions to their personal calendars.💀  
 
 ## Phase 3: Products and E-commerce
 
@@ -56,175 +224,46 @@
 * **Search Functionality**: Implement a search feature to help users find products easily.
 * **Inventory Management**: Include inventory tracking to manage stock levels.
 * **Order History**: Add model to track order histor in django admin ✅  
-* Field called user type: user, staff, admin
+* Field called user type: user, staff, admin 🔸  
 * Hide login/signup ✅  
-* add 'view bookings', view orders etc, buttons for staff
-* staff should be able to add sessions, products
-* Amazon  S3 🔸  
+* add 'view bookings', view orders etc, buttons for staff 🔸
+* staff should be able to add sessions, products 🔸
+* Amazon  S3 ✅  
 * Create unit tests - test the views, models, forms, for any/all apps
 
-2. Cart App: VCreate bespoke app for cart, separate to Products
-*	**Implement Checkout (Non-Subscription Products)**: Add a simple cart and checkout system for products, integrating with Stripe 
+2. Cart App: VCreate bespoke app for cart, separate to Products ✅  
+*	**Implement Checkout (Non-Subscription Products)**: Add a simple cart and checkout system for products, integrating with Stripe ✅  
 
 
-## Phase 4: Pre-recorded Videos (On-Demand Content)
+## Phase 4: Pre-recorded Videos (On-Demand Content) 💀  
  
-1.	Videos App: Pre-recorded Fitness Videos  
-* **Create the videos app**: Set up a model for videos (Video), and create views for listing and watching videos.  
-* **Restrict Access to Registered Users**: Ensure that only registered users can access the video library.  
-* **URLs and Templates**: Create URLs for listing videos (/videos/) and watching videos (/videos/<id>/).  
-* * **Video Quality**: Ensure videos are optimized for different devices and internet speeds.  
-* **Comments/Feedback**: Allow users to leave comments or feedback on videos.  
+1.	Videos App: Pre-recorded Fitness Videos 💀    
+* **Create the videos app**: Set up a model for videos (Video), and create views for listing and watching videos.💀    
+* **Restrict Access to Registered Users**: Ensure that only registered users can access the video library.💀    
+* **URLs and Templates**: Create URLs for listing videos (/videos/) and watching videos (/videos/<id>/).💀  
+* * **Video Quality**: Ensure videos are optimized for different devices and internet speeds.💀  
+* **Comments/Feedback**: Allow users to leave comments or feedback on videos.💀  
 
-## Phase 5: Payments, Subscriptions, and Final Polish
+## Phase 5: Payments, Subscriptions, and Final Polish🔸
 
-1.	Subscriptions App: Payment and Subscription Management  
-* **Implement Subscription Model**: Set up the Subscription model to manage recurring payments for access to premium content (live sessions and videos).  
-* **Integrate Stripe/PayPal**: Implement payment integration for subscription-based access to premium content.  
-* **Build Checkout for Subscription**: Create the checkout process for users to subscribe and manage payments.  
-* **URLs and Templates**: Create the subscription-related URLs (/subscriptions/checkout/), and ensure the system ties into the user’s dashboard and session access.  
-* **Payment Security**: Ensure PCI compliance for handling payments.
-* **Subscription Tiers**: Offer different subscription tiers with varying levels of access.
+1.	Subscriptions App: Payment and Subscription Management🔸  
+* **Implement Subscription Model**: Set up the Subscription model to manage recurring payments for access to premium content (live sessions and videos).  🔸  
+* **Integrate Stripe/PayPal**: Implement payment integration for subscription-based access to premium content.🔸  
+* **Build Checkout for Subscription**: Create the checkout process for users to subscribe and manage payments.🔸  
+* **URLs and Templates**: Create the subscription-related URLs (/subscriptions/checkout/), and ensure the system ties into the user’s dashboard and session access.🔸  
+* **Payment Security**: Ensure PCI compliance for handling payments.🔸  
+* **Subscription Tiers**: Offer different subscription tiers with varying levels of access. 💀  
 
 
 2.	Final Polish  
-* **Add Reviews for Products/Sessions**: Add a reviews feature where users can leave feedback on products or sessions.  
-* **Test and Debug**: Conduct thorough testing of all user flows, particularly with respect to authentication, payments, and session booking.  
-* **Responsive Design**: Ensure the site works well on mobile devices and tablets, especially for users booking live sessions on the go.  
-* **Analytics**: Implement analytics to track user engagement and sales.
+* **Add Reviews for Products/Sessions**: Add a reviews feature where users can leave feedback on products or sessions.💀   
+* **Test and Debug**: Conduct thorough testing of all user flows, particularly with respect to authentication, payments, and session booking.✅  
+* **Responsive Design**: Ensure the site works well on mobile devices and tablets, especially for users booking live sessions on the go.✅  
+* **Analytics**: Implement analytics to track user engagement and sales.💀  
 
-____________________________________
-Welcome William Saunders,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
-
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**June 18, 2024,** Add Mongo back into template
-
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
-
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+_
 * Data Model:
-![Data Model](ferociousfitness/media/img/django_data_model.jpeg)
+![Data Model](media/img/django_data_model.jpeg)
 
 * References  
   * https://dev.to/chukslord1/building-an-appointment-scheduler-app-with-django-and-fauna-2n9o
