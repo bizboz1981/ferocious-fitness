@@ -34,7 +34,7 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button id="submit-profile-btn" type="submit" class="custom-button">Update Profile</button>
+            <button id="update-profile-btn" class="custom-button" onclick="toggleProfileForm()">Update Your Profile</button>
         </form>
     </div>
     <!-- Booked Sessions -->
@@ -57,20 +57,15 @@
 </div>
 {% endblock content %}
 {% block extra-js %}
+
 <script>
-    // Toggle the display of the profile form when the button is clicked
-    document.addEventListener('DOMContentLoaded', function() {
-        var showFormBtn = document.getElementById('update-profile-btn');
-        if (showFormBtn) {
-            showFormBtn.addEventListener('click', function() {
-                var formContainer = document.getElementById('profile-form-container');
-                if (formContainer.style.display === 'none' || formContainer.style.display === '') {
-                    formContainer.style.display = 'block';
-                } else {
-                    formContainer.style.display = 'none';
-                }
-            });
+    function toggleProfileForm() {
+        var formContainer = document.getElementById('profile-form-container');
+        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+            formContainer.style.display = 'block';
+        } else {
+            formContainer.style.display = 'none';
         }
-    });
+    }
 </script>
 {% endblock extra-js %}
