@@ -5,66 +5,8 @@
     {{ user.username }}'s Profile
 {% endblock title %}
 {% block css %}
-<style>
-    .cta-button {
-        padding: 8px 16px !important;
-        font-size: 1em !important;
-        color: #fff !important;
-        background-color: #ff5722 !important;
-        border: none !important;
-        border-radius: 5px !important;
-        cursor: pointer !important;
-        transition: background-color 0.3s !important;
-        margin: 10px 0 !important;
-        width: auto !important;
-    }
-
-    .cta-button:hover {
-        background-color: #e64a19 !important;
-    }
-
-    /* Specific Button Styling by ID */
-    #update-profile-btn,
-    #submit-profile-btn,
-    [id^="cancel-booking-btn-"],
-    #get-started-btn {
-        padding: 8px 16px !important;
-        font-size: 1em !important;
-        color: #fff !important;
-        background-color: #ff5722 !important;
-        border: none !important;
-        border-radius: 5px !important;
-        cursor: pointer !important;
-        transition: background-color 0.3s !important;
-        margin: 10px 0 !important;
-        width: auto !important;
-    }
-
-    #update-profile-btn:hover,
-    #submit-profile-btn:hover,
-    [id^="cancel-booking-btn-"]:hover,
-    #get-started-btn:hover {
-        background-color: #e64a19 !important;
-    }
-
-    /* Responsive Button Styling */
-    @media (max-width: 768px) {
-        .cta-button,
-        #update-profile-btn,
-        #submit-profile-btn,
-        [id^="cancel-booking-btn-"],
-        #get-started-btn {
-            width: 100% !important;
-            font-size: 0.9em !important;
-        }
-    }
-
-    /* Profile Page Specific Button Styling */
-    .profile-content .cta-button {
-        margin-top: 20px !important;
-    }
-    
-</style>
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock css %}
 
 {% block content %}
@@ -85,14 +27,14 @@
     <!-- Display join date -->
     <p><strong>Joined on:</strong> {{ profile.join_date }}</p>
     <!-- Button to show the form -->
-    <button id="update-profile-btn" class="cta-button">Update Your Profile</button>
+    <button id="update-profile-btn" class="custom-button">Update Your Profile</button>
 
     <!-- Form container, initially hidden -->
     <div id="profile-form-container" class="profile-form">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button id="submit-profile-btn" type="submit" class="cta-button">Update Profile</button>
+            <button id="submit-profile-btn" type="submit" class="custom-button">Update Profile</button>
         </form>
     </div>
     <!-- Booked Sessions -->
@@ -105,7 +47,7 @@
             <!-- cancel button -->
             <form action="{% url 'cancel_booking' booking.id %}" method="post" style="display:inline;">
                 {% csrf_token %}
-                <button id="cancel-booking-btn-{{ booking.id }}" type="submit" class="cta-button">Cancel Booking</button>
+                <button id="cancel-booking-btn-{{ booking.id }}" type="submit" class="custom-button">Cancel Booking</button>
             </form>
         </li>        
         {% empty %}
@@ -114,3 +56,6 @@
     </ul>
 </div>
 {% endblock content %}
+{% block extra-js %}
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock extra-js %}

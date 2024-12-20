@@ -168,80 +168,6 @@ section h3 {
     margin-bottom: 20px;
 }
 
-/* --------------------------- Buttons ---------------------------- */
-
-/* General Button Styling */
-.cta-button {
-    padding: 8px 16px !important; /* Smaller padding */
-    font-size: 1em !important; /* Smaller font size */
-    color: #fff !important;
-    background-color: #ff5722 !important;
-    border: none !important;
-    border-radius: 5px !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s !important;
-    margin: 10px 0 !important; /* Add margin */
-    width: auto !important; /* Ensure width is auto */
-}
-
-.cta-button:hover {
-    background-color: #e64a19 !important;
-}
-
-/* Specific Button Styling by ID */
-#update-profile-btn,
-#submit-profile-btn,
-[id^="cancel-booking-btn-"],
-#get-started-btn {
-    padding: 8px 16px !important; /* Smaller padding */
-    font-size: 1em !important; /* Smaller font size */
-    color: #fff !important;
-    background-color: #ff5722 !important;
-    border: none !important;
-    border-radius: 5px !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s !important;
-    margin: 10px 0 !important; /* Add margin */
-    width: auto !important; /* Ensure width is auto */
-}
-
-#update-profile-btn:hover,
-#submit-profile-btn:hover,
-[id^="cancel-booking-btn-"]:hover,
-#get-started-btn:hover {
-    background-color: #e64a19 !important;
-}
-
-/* Responsive Button Styling */
-@media (max-width: 768px) {
-    .cta-button,
-    #update-profile-btn,
-    #submit-profile-btn,
-    [id^="cancel-booking-btn-"],
-    #get-started-btn {
-        width: 100% !important; /* Full width on smaller screens */
-        font-size: 0.9em !important; /* Slightly smaller font size */
-    }
-}
-
-/* Profile Page Specific Button Styling */
-.profile-content .cta-button {
-    margin-top: 20px !important; /* Add margin to the top */
-}
-
-/* Home Page Specific Button Styling */
-#cta-section .cta-button {
-    width: 250px !important; /* Specific width for the call-to-action button */
-    margin: 20px auto !important; /* Center the button with margin */
-}
-
-.btn-outline-primary {
-    color: #007bff;
-    background-color: transparent;
-    background-image: none;
-    border-color: #007bff;
-}
-
 /* -------------------------- Booking Section ---------------------------- */
 
 
@@ -395,3 +321,35 @@ section h3 {
         width: 95% !important; /* Further increase width on very small screens */
     }
 }
+
+/* --------------------------- Buttons ---------------------------- */
+
+/* General Button Styling */
+.custom-button {
+    padding: 8px 16px !important; /* Smaller padding */
+    font-size: 1em !important; /* Smaller font size */
+    color: #fff !important;
+    background-color: #de0cb0 !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+    margin: 10px 0 !important; /* Add margin */
+    width: auto !important; /* Ensure width is auto */
+}
+
+/* .custom-button:hover {
+    background-color: #e619ac !important;
+} */
+
+/* Profile Page Specific Button Styling */
+/* .profile-content .custom-button {
+    margin-top: 20px !important; /* Add margin to the top */
+}
+. */
+/* Home Page Specific Button Styling
+#cta-section .custom-button {
+    width: 250px !important; /* Specific width for the call-to-action button */
+    /* margin: 20px auto !important; Center the button with margin */
+}
+. */

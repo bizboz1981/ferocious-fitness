@@ -1,6 +1,6 @@
 // Toggle the display of the profile form when the button is clicked
 document.addEventListener('DOMContentLoaded', function() {
-    var showFormBtn = document.getElementById('show-form-btn');
+    var showFormBtn = document.getElementById('update-profile-btn');
     if (showFormBtn) {
         showFormBtn.addEventListener('click', function() {
             var formContainer = document.getElementById('profile-form-container');
