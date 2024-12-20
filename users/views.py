@@ -65,8 +65,8 @@ def cancel_booking(request, booking_id):
 
 
 def is_staff(user):
-    # Check if the user is a staff member and not a superuser
-    return user.is_staff and not user.is_superuser
+    # Check if the user is a staff member or a superuser
+    return user.is_staff or user.is_superuser
 
 
 @user_passes_test(is_staff, login_url=reverse_lazy("login"))
