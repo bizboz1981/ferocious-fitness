@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+
 from products.models import Product
 
 # Create your models here.
@@ -8,7 +9,7 @@ from products.models import Product
 # Model representing a shopping cart
 class Cart(models.Model):
     user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True
     )  # Each user has one cart
     created_at = models.DateTimeField(
         auto_now_add=True
@@ -19,7 +20,9 @@ class Cart(models.Model):
         return sum(item.subtotal for item in self.items.all())
 
     def create_order(self):
-        order = Order.objects.create(user=self.user, total_price=self.total_order_price)
+        order = Order.objects.create(
+            user=self.user if self.user else None, total_price=self.total_order_price
+        )
         for item in self.items.all():
             OrderItem.objects.create(
                 order=order,
@@ -51,7 +54,9 @@ class CartItem(models.Model):
 # Model representing an order
 class Order(models.Model):
     # Each order has: user, timestamp, total price
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
 
