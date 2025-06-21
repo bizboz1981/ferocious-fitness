@@ -338,18 +338,3 @@ section h3 {
     width: auto !important; /* Ensure width is auto */
 }
 
-/* .custom-button:hover {
-    background-color: #e619ac !important;
-} */
-
-/* Profile Page Specific Button Styling */
-/* .profile-content .custom-button {
-    margin-top: 20px !important; /* Add margin to the top */
-}
-. */
-/* Home Page Specific Button Styling
-#cta-section .custom-button {
-    width: 250px !important; /* Specific width for the call-to-action button */
-    /* margin: 20px auto !important; Center the button with margin */
-}
-. */
