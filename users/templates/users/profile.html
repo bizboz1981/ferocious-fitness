@@ -27,14 +27,14 @@
     <!-- Display join date -->
     <p><strong>Joined on:</strong> {{ profile.join_date }}</p>
     <!-- Button to show the form -->
-    <button id="update-profile-btn" class="custom-button">Update Your Profile</button>
+    <button id="update-profile-btn" class="btn btn-primary">Update Your Profile</button>
 
     <!-- Form container, initially hidden -->
     <div id="profile-form-container" class="profile-form">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button id="update-profile-btn" class="custom-button" onclick="toggleProfileForm()">Update Your Profile</button>
+            <button id="update-profile-btn" class="btn btn-primary" onclick="toggleProfileForm()">Update Your Profile</button>
         </form>
     </div>
     <!-- Booked Sessions -->
@@ -47,7 +47,7 @@
             <!-- cancel button -->
             <form action="{% url 'cancel_booking' booking.id %}" method="post" style="display:inline;">
                 {% csrf_token %}
-                <button id="cancel-booking-btn-{{ booking.id }}" type="submit" class="custom-button">Cancel Booking</button>
+                <button id="cancel-booking-btn-{{ booking.id }}" type="submit" class="btn btn-primary">Cancel Booking</button>
             </form>
         </li>        
         {% empty %}

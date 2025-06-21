@@ -95,7 +95,7 @@ section {
 
 section h3 {
     font-size: 1.8em;
-    color: #444;
+    color: #bebebe;
     margin-bottom: 10px;
 }
 
@@ -325,6 +325,8 @@ section h3 {
 /* --------------------------- Buttons ---------------------------- */
 
 /* General Button Styling */
+
+
 .custom-button {
     padding: 8px 16px !important; /* Smaller padding */
     font-size: 1em !important; /* Smaller font size */
