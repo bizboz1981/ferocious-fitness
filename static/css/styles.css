@@ -338,3 +338,29 @@ section h3 {
     width: auto !important; /* Ensure width is auto */
 }
 
+/* Make all input and textarea fields responsive */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Make the profile-content container responsive on mobile */
+@media (max-width: 768px) {
+    .profile-content {
+        width: 98% !important;
+        padding: 10px !important;
+    }
+    .profile-form form {
+        width: 100% !important;
+    }
+    textarea.form-control,
+    input.form-control {
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }
+}

@@ -15,6 +15,9 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         # Fields to include in the form
         fields = ["bio", "subscription_status"]
+        widgets = {
+            "bio": forms.Textarea(attrs={"class": "form-control", "rows": 4}),
+        }
 
     def save(self, commit=True):
         # Save the form data to the Profile instance
