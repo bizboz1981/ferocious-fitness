@@ -69,6 +69,7 @@ class Order(models.Model):
 
     # Add form fields to the Order model
     name = models.CharField(max_length=255)
+    email = models.EmailField(blank=True, null=True)
     address_line1 = models.CharField(max_length=255, blank=True, null=True)
     address_line2 = models.CharField(max_length=255, blank=True, null=True)
     address_line3 = models.CharField(max_length=255, blank=True, null=True)

@@ -1,7 +1,6 @@
 import stripe
 from django.conf import settings
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -69,11 +68,11 @@ def remove_from_cart(request, item_id):
     return redirect("view_cart")
 
 
-@login_required
 def complete_order(request):
     if request.method == "POST":
         # Get the form data
         name = request.POST.get("name")
+        email = request.POST.get("email")
         address_line1 = request.POST.get("address_line1")
         address_line2 = request.POST.get("address_line2")
         address_line3 = request.POST.get("address_line3")
@@ -89,6 +88,8 @@ def complete_order(request):
 
         # Set the order details from the form data
         order.name = name
+        if not request.user.is_authenticated:
+            order.email = email
         order.address_line1 = address_line1
         order.address_line2 = address_line2
         order.address_line3 = address_line3
@@ -126,7 +127,6 @@ def complete_order(request):
     return redirect("view_cart")
 
 
-@login_required
 def order_confirmation(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     session_id = request.GET.get("session_id")
