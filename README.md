@@ -151,8 +151,8 @@ The application is deployed on Heroku.
 Please feel free to clone the project and use it for your own site. In order to do this:
 
 ### Cloning the Repo
-1. Open your terminal and run the following command to clone the repository:```git clone https://github.com/bizboz1981/CI3-flask-books```
-2. cd into the new project directory: ```cd CI3-flask-books```
+1. Open your terminal and run the following command to clone the repository:```git clone https://github.com/bizboz1981/ferocious-fitness```
+2. cd into the new project directory: ```cd ferocious-fitness```
 3. Create and activate a virtual environment: <br>```python3 -m venv venv```<br>```source venv/bin/activate``` (On Windows use `venv\Scripts\activate`)
 4. Install the required dependencies from the requirements.txt file: ```pip install -r requirements.txt```
 5. Create a .env file in the root directory and add the necessary environment variables: ```touch .env```
