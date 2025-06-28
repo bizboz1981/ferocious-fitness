@@ -9,7 +9,10 @@ from products.models import Product
 # Model representing a shopping cart
 class Cart(models.Model):
     user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
     )  # Each user has one cart
     created_at = models.DateTimeField(
         auto_now_add=True
@@ -21,7 +24,8 @@ class Cart(models.Model):
 
     def create_order(self):
         order = Order.objects.create(
-            user=self.user if self.user else None, total_price=self.total_order_price
+            user=self.user if self.user else None,
+            total_price=self.total_order_price,
         )
         for item in self.items.all():
             OrderItem.objects.create(
@@ -55,7 +59,10 @@ class CartItem(models.Model):
 class Order(models.Model):
     # Each order has: user, timestamp, total price
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
     )
     created_at = models.DateTimeField(auto_now_add=True)
     total_price = models.DecimalField(max_digits=10, decimal_places=2)

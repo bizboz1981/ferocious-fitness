@@ -17,7 +17,8 @@ def product_list(request):
 
     if search_query:
         products = products.filter(
-            Q(name__icontains=search_query) | Q(description__icontains=search_query)
+            Q(name__icontains=search_query) | Q(
+                description__icontains=search_query)
         )
 
     if sort_by == "price_asc":

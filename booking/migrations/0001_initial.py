@@ -17,7 +17,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ClassType',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=50)),
                 ('description', models.TextField(blank=True, null=True)),
             ],
@@ -25,24 +26,30 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Session',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
                 ('description', models.TextField(blank=True, null=True)),
                 ('date', models.DateField()),
                 ('time', models.TimeField()),
                 ('location', models.CharField(blank=True, max_length=100)),
                 ('max_participants', models.PositiveIntegerField(default=1)),
-                ('current_participants', models.PositiveIntegerField(default=0, editable=False)),
-                ('session_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='booking.classtype')),
+                ('current_participants', models.PositiveIntegerField(
+                    default=0, editable=False)),
+                ('session_type', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='booking.classtype')),
             ],
         ),
         migrations.CreateModel(
             name='Booking',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('booking_date', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('session', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='bookings', to='booking.session')),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('session', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                 related_name='bookings', to='booking.session')),
             ],
             options={
                 'unique_together': {('user', 'session')},

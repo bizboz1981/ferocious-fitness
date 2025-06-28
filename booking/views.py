@@ -22,11 +22,12 @@ def book_session(request, session_id):
         try:
             Booking.objects.create(user=request.user, session=session)
             messages.success(
-                request, f"You have successfully booked this {session.title} session."
+                request,
+                (f"You have successfully booked this {session.title} session."),
             )
         except IntegrityError:
             messages.error(
-                request, f"You have already booked this {session.title} session."
+                request, (f"You have already booked this {session.title} session.")
             )
     else:
         messages.error(request, f"This {session.title} session is fully booked.")

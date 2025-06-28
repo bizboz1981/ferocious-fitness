@@ -84,8 +84,10 @@ LOGOUT_REDIRECT_URL = "/"
 
 # Additional allauth settings
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "optional"  # Options: "mandatory", "optional", "none"
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # Allows both username and email login
+# Options: "mandatory", "optional", "none"
+ACCOUNT_EMAIL_VERIFICATION = "optional"
+# Allows both username and email login
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_USERNAME_REQUIRED = True
 
 MIDDLEWARE = [
@@ -135,7 +137,10 @@ DATABASES = {"default": dj_database_url.config(default=os.getenv("DATABASE_URL")
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -169,9 +174,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
-# WhiteNoise settings
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type

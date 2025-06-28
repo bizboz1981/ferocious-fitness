@@ -44,7 +44,10 @@ def add_to_cart(request, product_id):
     messages.success(
         request,
         mark_safe(
-            f"{product.name} was successfully added to your basket. <a href='/cart/'>View Basket</a>"
+            (
+                f"{product.name} was successfully added to your basket. "
+                "<a href='/cart/'>View Basket</a>"
+            )
         ),
     )
     return redirect("view_cart")
@@ -79,7 +82,8 @@ def complete_order(request):
         country = request.POST.get("country")
 
         # Get the cart for the current user or return 404 if not found
-        cart = get_cart(request)  # Use the helper for both user and session carts
+        # Use the helper for both user and session carts
+        cart = get_cart(request)
         # Create an order from the cart
         order = cart.create_order()
 
@@ -138,21 +142,25 @@ def order_confirmation(request, order_id):
 
 # View to handle getting the cart
 def get_cart(request):
-    # If the user is authenticated, get or create a cart associated with the user
+    # If the user is authenticated, get or create a cart associated with the
+    # user
     if request.user.is_authenticated:
         cart, created = Cart.objects.get_or_create(user=request.user)
     else:
         # For anonymous users, use session to track their cart
         cart_id = request.session.get("cart_id")
         if cart_id:
-            # Try to retrieve an existing cart with this session cart_id and no user
+            # Try to retrieve an existing cart with this session cart_id and
+            # no user
             cart = Cart.objects.filter(id=cart_id, user__isnull=True).first()
             if not cart:
-                # If not found, create a new cart and store its id in the session
+                # If not found, create a new cart and store its id in the
+                # session
                 cart = Cart.objects.create()
                 request.session["cart_id"] = cart.id
         else:
-            # If no cart_id in session, create a new cart and store its id in the session
+            # If no cart_id in session, create a new cart and store its id in
+            # the session
             cart = Cart.objects.create()
             request.session["cart_id"] = cart.id
     # Return the cart instance (either existing or newly created)
