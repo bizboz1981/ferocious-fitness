@@ -71,6 +71,13 @@ The scope of the project changed significantly over the course of development. A
 
 ## Design
 
+### Wireframe
+
+![Wireframe](media/img/wireframe.png)
+
+### Typography
+The application uses classic and clean Arial sans serif fonts so that users have an intuitive and pleasant user experience.
+
 ### Colour Scheme
 The application uses neutral colors, such as off-whites and browns, to maintain a classic and functional appearance, without unnecessary distractions. However, a skilled designer would improve the look and feel no end.
 
