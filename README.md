@@ -13,6 +13,12 @@ Link to live project: [Ferocious Fitness](https://ferocious-fitness-1a2086a68872
 - [Credits](#credits)
 - [References & Resources Used](#references--resources-used)
 
+## Notes on resubmission
+- PEP8: Python code has now been run through Flake8 to validate for PEP8 compliance. It is formatted with Black, which occasionally leaves some lines slightly longer than 79 chars for readability. I have accepted this.
+- Payment details: The 500 error the first time around was caused by trying to complete a transaction as an unauthenticated user. It did function correctly if logged in, but now allows unauthenticated users to checkout as a guest.
+- Mobile responsiveness: I have added a hamburger menu and fixed some format issues on mobile screens.
+- Design: I have added wireframe and typography sections to the readme and fixed some contrast issues.
+
 ## Project Background & Summary
 This project is a Django-based fitness club website. The motivation behind this project was to provide a user-friendly application for managing fitness sessions, tracking user progress, and maintaining user profiles. It aims to merge the power of Django as a Python web framework with a clean and intuitive frontend, making club management simple and efficient. The project demonstrates the ease of CRUD (Create, Read, Update, Delete) operations with Django.
 
