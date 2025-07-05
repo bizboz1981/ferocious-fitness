@@ -64,8 +64,7 @@ class Session(models.Model):
     max_participants = models.PositiveIntegerField(
         default=1
     )  # Limit for group classes; default 1 for PT sessions
-    current_participants = models.PositiveIntegerField(
-        default=0, editable=False)
+    current_participants = models.PositiveIntegerField(default=0, editable=False)
 
     def __str__(self):
         return f"{self.title} on {self.date} at {self.time}"
@@ -130,10 +129,7 @@ class Booking(models.Model):
         self.session.save()
 
     def delete(self, *args, **kwargs):
-        # Decrement participants when a booking is cancelled
-        if (
-            not self.session.is_full()
-        ):  # This check is not logically necessary - refactor
-            self.session.current_participants -= 1
-            self.session.save()
+        # Always decrement participants when a booking is cancelled
+        self.session.current_participants -= 1
+        self.session.save()
         super().delete(*args, **kwargs)
